@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#E8F6E6" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="たびベル貯金" />
+  <title>たびベル貯金</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+
+  <!-- ベル袋SVGアイコン（ファビコン・ホーム画面アイコン用） -->
+  <link id="dynamicFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='42%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23FFF9D6'/%3E%3Cstop offset='55%25' stop-color='%23E7F6E5'/%3E%3Cstop offset='100%25' stop-color='%23CBEAD0'/%3E%3C/radialGradient%3E%3ClinearGradient id='bag' x1='120' y1='120' x2='400' y2='450' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFF0B3'/%3E%3Cstop offset='55%25' stop-color='%23FFD966'/%3E%3Cstop offset='100%25' stop-color='%23EAB028'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='116' fill='url(%23bg)'/%3E%3Cellipse cx='256' cy='444' rx='142' ry='26' fill='%239BBFA3' opacity='0.55'/%3E%3Cpath d='M184 140 C158 94, 200 62, 228 96 C240 66, 272 66, 284 96 C312 62, 354 94, 328 140 Z' fill='%23FFE680' stroke='%235E3B1E' stroke-width='12' stroke-linejoin='round'/%3E%3Cpath d='M192 144 C112 184, 88 288, 114 366 C134 424, 198 438, 256 438 C314 438, 378 424, 398 366 C424 288, 400 184, 320 144 Z' fill='url(%23bag)' stroke='%235E3B1E' stroke-width='13' stroke-linejoin='round'/%3E%3Cpath d='M178 148 Q256 172 334 148' stroke='%235E3B1E' stroke-width='24' stroke-linecap='round' fill='none'/%3E%3Cpath d='M178 148 Q256 172 334 148' stroke='%23FF6B5B' stroke-width='15' stroke-linecap='round' fill='none'/%3E%3Cpath d='M256 266 L266.8 289.5 L292.2 292.5 L273.5 310 L278.5 335.2 L256 322.4 L233.5 335.2 L238.5 310 L219.8 292.5 L245.2 289.5 Z' fill='%23FF6B5B' stroke='%235A381E' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link id="appleTouchIcon" rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='42%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23FFF9D6'/%3E%3Cstop offset='55%25' stop-color='%23E7F6E5'/%3E%3Cstop offset='100%25' stop-color='%23CBEAD0'/%3E%3C/radialGradient%3E%3ClinearGradient id='bag' x1='120' y1='120' x2='400' y2='450' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFF0B3'/%3E%3Cstop offset='55%25' stop-color='%23FFD966'/%3E%3Cstop offset='100%25' stop-color='%23EAB028'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='116' fill='url(%23bg)'/%3E%3Cellipse cx='256' cy='444' rx='142' ry='26' fill='%239BBFA3' opacity='0.55'/%3E%3Cpath d='M184 140 C158 94, 200 62, 228 96 C240 66, 272 66, 284 96 C312 62, 354 94, 328 140 Z' fill='%23FFE680' stroke='%235E3B1E' stroke-width='12' stroke-linejoin='round'/%3E%3Cpath d='M192 144 C112 184, 88 288, 114 366 C134 424, 198 438, 256 438 C314 438, 378 424, 398 366 C424 288, 400 184, 320 144 Z' fill='url(%23bag)' stroke='%235E3B1E' stroke-width='13' stroke-linejoin='round'/%3E%3Cpath d='M178 148 Q256 172 334 148' stroke='%235E3B1E' stroke-width='24' stroke-linecap='round' fill='none'/%3E%3Cpath d='M178 148 Q256 172 334 148' stroke='%23FF6B5B' stroke-width='15' stroke-linecap='round' fill='none'/%3E%3Cpath d='M256 266 L266.8 289.5 L292.2 292.5 L273.5 310 L278.5 335.2 L256 322.4 L233.5 335.2 L238.5 310 L219.8 292.5 L245.2 289.5 Z' fill='%23FF6B5B' stroke='%235A381E' stroke-width='7' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-cream: #FFFDF7;
+      --bg-mint: #E8F6E6;
+      --ink-brown: #5A381E;
+      --accent-coral: #FF6B5B;
+      --accent-gold: #F5B700;
+      --accent-mint: #38B27A;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 224, 102, 0.35) 0%, transparent 38%),
+        radial-gradient(circle at 88% 15%, rgba(126, 217, 168, 0.32) 0%, transparent 40%),
+        linear-gradient(180deg, #F3FBF1 0%, #FFFDF6 48%, #FFF7E3 100%);
+      color: var(--ink-brown);
+      min-height: 100dvh;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: calc(env(safe-area-inset-bottom) + 12px);
+      overflow-x: hidden;
+    }
+
+    @media (display-mode: standalone) {
+      body {
+        background:
+          radial-gradient(circle at 12% 8%, rgba(255, 224, 102, 0.42) 0%, transparent 40%),
+          radial-gradient(circle at 88% 15%, rgba(126, 217, 168, 0.36) 0%, transparent 42%),
+          linear-gradient(180deg, #EFFAF0 0%, #FFFDF6 50%, #FFF6DF 100%);
+      }
+    }
+
+    .pop-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border: 3px solid #5A381E;
+      box-shadow: 0 6px 0 #5A381E;
+      border-radius: 28px;
+    }
+
+    .pop-btn-save {
+      background: linear-gradient(180deg, #4FD18B 0%, #2AA866 100%);
+      color: #FFFFFF;
+      border: 3px solid #48301B;
+      box-shadow: 0 5px 0 #48301B;
+      border-radius: 22px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .pop-btn-save:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #48301B;
+    }
+
+    .pop-btn-spend {
+      background: linear-gradient(180deg, #FF8577 0%, #F25746 100%);
+      color: #FFFFFF;
+      border: 3px solid #48301B;
+      box-shadow: 0 5px 0 #48301B;
+      border-radius: 22px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .pop-btn-spend:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #48301B;
+    }
+
+    .pop-chip {
+      border: 2px solid #5A381E;
+      box-shadow: 0 2px 0 #5A381E;
+      border-radius: 9999px;
+      transition: transform 0.1s ease, background-color 0.15s ease;
+    }
+    .pop-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 #5A381E;
+    }
+
+    @keyframes bagFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(0.8deg); }
+    }
+
+    @keyframes bagPop {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.12, 0.92); }
+      70% { transform: scale(0.96, 1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bagShudder {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(-7px) rotate(-2deg); }
+      40% { transform: translateX(7px) rotate(2deg); }
+      60% { transform: translateX(-5px) rotate(-1.5deg); }
+      80% { transform: translateX(5px) rotate(1.5deg); }
+    }
+
+    @keyframes sparklePulse {
+      0%, 100% { opacity: 0.35; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.18); }
+    }
+
+    @keyframes pebbleFall {
+      0% { transform: translateY(-6px); opacity: 0.95; }
+      100% { transform: translateY(24px); opacity: 0; }
+    }
+
+    @keyframes godPopIn {
+      0% { opacity: 0; transform: translateY(26px) scale(0.86); }
+      70% { opacity: 1; transform: translateY(-4px) scale(1.03); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes godBob {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-5px) rotate(1.5deg); }
+    }
+
+    /* 画面上部から下部へコイン・お札が落ちていくアニメーション */
+    @keyframes coinRainFall {
+      0% {
+        transform: translate3d(0, -14vh, 0) rotate(0deg) scale(0.9);
+        opacity: 0;
+      }
+      12% {
+        opacity: 1;
+        transform: translate3d(0, -4vh, 0) rotate(45deg) scale(1);
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(var(--coin-drift, 16px), 108vh, 0) rotate(var(--coin-spin, 540deg)) scale(0.96);
+        opacity: 0;
+      }
+    }
+
+    @keyframes billFlutterFall {
+      0% {
+        transform: translate3d(0, -16vh, 0) rotate(-12deg) scale(0.92);
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+        transform: translate3d(calc(var(--bill-sway, 26px) * 0.4), -3vh, 0) rotate(10deg) scale(1);
+      }
+      50% {
+        transform: translate3d(calc(var(--bill-sway, 26px) * -0.7), 48vh, 0) rotate(-16deg) scale(1);
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(var(--bill-sway, 26px), 108vh, 0) rotate(var(--bill-tilt, 24deg)) scale(0.96);
+        opacity: 0;
+      }
+    }
+
+    .falling-coin-item {
+      position: fixed;
+      top: 0;
+      left: var(--coin-left, 50%);
+      width: var(--coin-size, 34px);
+      height: var(--coin-size, 34px);
+      z-index: 60;
+      pointer-events: none;
+      animation: coinRainFall var(--coin-duration, 1.25s) cubic-bezier(0.25, 0.72, 0.45, 1) var(--coin-delay, 0s) forwards;
+      will-change: transform, opacity;
+    }
+
+    .falling-bill-item {
+      position: fixed;
+      top: 0;
+      left: var(--bill-left, 50%);
+      width: var(--bill-width, 64px);
+      height: var(--bill-height, 34px);
+      z-index: 60;
+      pointer-events: none;
+      animation: billFlutterFall var(--bill-duration, 1.55s) ease-in-out var(--bill-delay, 0s) forwards;
+      will-change: transform, opacity;
+    }
+
+    /* 「つかう」時：コインや紙幣がふわっと天に召されるアニメーション */
+    @keyframes ascendToHeaven {
+      0% {
+        transform: translate3d(0, 12vh, 0) scale(0.88) rotate(0deg);
+        opacity: 0;
+      }
+      18% {
+        opacity: 1;
+        transform: translate3d(calc(var(--ascend-sway, 16px) * 0.35), 2vh, 0) scale(1.03) rotate(calc(var(--ascend-tilt, 8deg) * 0.5));
+      }
+      60% {
+        opacity: 0.95;
+        transform: translate3d(calc(var(--ascend-sway, 16px) * -0.5), -44vh, 0) scale(1) rotate(calc(var(--ascend-tilt, 8deg) * -0.8));
+      }
+      100% {
+        transform: translate3d(var(--ascend-sway, 16px), -106vh, 0) scale(0.92) rotate(var(--ascend-tilt, 8deg));
+        opacity: 0;
+      }
+    }
+
+    .ascending-angel-coin {
+      position: fixed;
+      bottom: 0;
+      left: var(--ascend-left, 50%);
+      width: var(--ascend-size, 44px);
+      height: var(--ascend-size, 44px);
+      z-index: 60;
+      pointer-events: none;
+      animation: ascendToHeaven var(--ascend-duration, 1.55s) ease-out var(--ascend-delay, 0s) forwards;
+      will-change: transform, opacity;
+    }
+
+    .ascending-bill-item {
+      position: fixed;
+      bottom: 0;
+      left: var(--ascend-left, 50%);
+      width: var(--ascend-width, 72px);
+      height: var(--ascend-height, 38px);
+      z-index: 60;
+      pointer-events: none;
+      animation: ascendToHeaven var(--ascend-duration, 1.7s) ease-in-out var(--ascend-delay, 0s) forwards;
+      will-change: transform, opacity;
+    }
+
+    .bell-idle {
+      animation: bagFloat 3.2s ease-in-out infinite;
+    }
+    .bell-animate-save {
+      animation: bagPop 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bell-animate-spend {
+      animation: bagShudder 0.45s ease-in-out;
+    }
+    .sparkle-item {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: sparklePulse 2s ease-in-out infinite;
+    }
+    .pebble-drop {
+      animation: pebbleFall 1.35s ease-in infinite;
+    }
+
+    /* 目標達成時：ベル袋の周りに静止画でコインが落ちている表示 */
+    .overflow-coin-item {
+      position: absolute;
+      top: var(--ov-top, 46%);
+      left: var(--ov-left, 50%);
+      width: var(--ov-size, 24px);
+      height: var(--ov-size, 24px);
+      transform: translate3d(var(--ov-dx, 0px), var(--ov-dy, 0px), 0) rotate(var(--ov-tilt, 0deg));
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    .god-enter {
+      animation: godPopIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .god-bob {
+      animation: godBob 2.4s ease-in-out infinite;
+    }
+
+    /* 1分ごとの豆知識・お告げ用：ベル神さま登場＆吹き出し演出 */
+    @keyframes godPeekIn {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.84) rotate(-4deg);
+      }
+      70% {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.03) rotate(1.5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+      }
+    }
+
+    @keyframes speechBubblePop {
+      0% {
+        opacity: 0;
+        transform: translateX(-8px) scale(0.92);
+      }
+      75% {
+        opacity: 1;
+        transform: translateX(2px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    .whisper-god-pop {
+      animation: godPeekIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .whisper-bubble-pop {
+      animation: speechBubblePop 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* 吹き出しのしっぽ */
+    .god-speech-bubble {
+      position: relative;
+      background: #FFFFFF;
+      border: 2.5px solid #5A381E;
+      box-shadow: 0 4px 0 #5A381E;
+      border-radius: 20px;
+    }
+    .god-speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 22px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 11px solid #5A381E;
+    }
+    .god-speech-bubble::after {
+      content: '';
+      position: absolute;
+      left: -7.5px;
+      top: 23.5px;
+      width: 0;
+      height: 0;
+      border-top: 6.5px solid transparent;
+      border-bottom: 6.5px solid transparent;
+      border-right: 9px solid #FFFFFF;
+    }
+
+    /* ウィジェット専用モード（?widget=1x4 または ?widget=2x4） */
+    body.widget-mode {
+      padding: 8px;
+      min-height: auto;
+      background: transparent;
+    }
+    body.widget-mode .full-app-only {
+      display: none !important;
+    }
+    body.widget-mode .widget-view {
+      display: block !important;
+    }
+    .widget-view {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- ウィジェット表示（URLクエリ ?widget=1x4 / ?widget=2x4 で表示） -->
+  <!-- ウィジェット表示は不要のため削除済み -->
+
+  <!-- メインアプリケーション -->
+  <div class="full-app-only max-w-md mx-auto px-4 pt-3 pb-24">
+    <header class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-10 h-10 rounded-2xl bg-[#FFE680] border-[2.5px] border-[#5A381E] shadow-[0_3px_0_#5A381E] flex items-center justify-center shrink-0 p-1">
+          <!-- 左上のベル袋マークSVG -->
+          <svg viewBox="0 0 64 64" class="w-full h-full overflow-visible" aria-hidden="true">
+            <path d="M22 18 C16 11, 22 6, 26 11 C28 7, 36 7, 38 11 C42 6, 48 11, 42 18 Z"
+              fill="#FFE680" stroke="#5A381E" stroke-width="3.2" stroke-linejoin="round" />
+            <path d="M23 18 C12 24, 9 38, 13 48 C16 55, 24 57, 32 57 C40 57, 48 55, 51 48 C55 38, 52 24, 41 18 Z"
+              fill="#FFD86B" stroke="#5A381E" stroke-width="3.4" stroke-linejoin="round" />
+            <path d="M20 19 Q32 23 44 19"
+              stroke="#FF6B5B" stroke-width="3.5" stroke-linecap="round" fill="none" />
+            <path d="M32 32 L34.2 36.8 L39.4 37.4 L35.6 41 L36.6 46.2 L32 43.5 L27.4 46.2 L28.4 41 L24.6 37.4 L29.8 36.8 Z"
+              fill="#FF6B5B" stroke="#5A381E" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <h1 class="text-lg font-black tracking-tight text-[#5A381E] leading-tight truncate">たびベル貯金</h1>
+          <p id="goalSummaryText" class="text-[11px] font-bold text-[#7A5C43] truncate">目標：週末ごほうび旅（¥30,000）</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="soundToggleBtn" type="button" onclick="toggleSound()" aria-label="効果音切替"
+          class="w-10 h-10 rounded-2xl bg-white border-[2.5px] border-[#5A381E] shadow-[0_3px_0_#5A381E] flex items-center justify-center text-base active:translate-y-0.5 cursor-pointer">
+          🔊
+        </button>
+        <button type="button" onclick="openInstallModal()" aria-label="ホーム画面に追加"
+          class="w-10 h-10 rounded-2xl bg-[#E8F8EE] border-[2.5px] border-[#5A381E] shadow-[0_3px_0_#5A381E] flex items-center justify-center text-base active:translate-y-0.5 cursor-pointer">
+          📲
+        </button>
+        <button type="button" onclick="openSettingsModal()" aria-label="目標と設定"
+          class="w-10 h-10 rounded-2xl bg-[#FFF3C4] border-[2.5px] border-[#5A381E] shadow-[0_3px_0_#5A381E] flex items-center justify-center text-base active:translate-y-0.5 cursor-pointer">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <!-- ベル袋ステージ -->
+    <section class="pop-card p-4 mb-3.5 relative overflow-hidden">
+      <div class="flex items-center justify-between gap-2 mb-1">
+        <span id="bagRankBadge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black bg-[#FFF2B2] text-[#5A381E] border-2 border-[#5A381E]">
+          ✨ ぷっくりベル袋
+        </span>
+        <span id="goalPercentBadge" class="text-xs font-extrabold text-[#6D8B74]">達成率 0%</span>
+      </div>
+
+      <div id="bellStage" class="relative flex flex-col items-center justify-center my-1 min-h-[205px]">
+        <div id="bellMotionWrapper" class="bell-idle w-48 h-48 flex items-center justify-center select-none">
+          <svg id="bellBagSvg" viewBox="0 0 240 240" class="w-full h-full overflow-visible">
+            <defs>
+              <linearGradient id="bellNormalGrad" x1="40" y1="45" x2="200" y2="215" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFF2B8" />
+                <stop offset="55%" stop-color="#FFD86B" />
+                <stop offset="100%" stop-color="#E7AC26" />
+              </linearGradient>
+
+              <linearGradient id="bellLuxuryGrad" x1="30" y1="30" x2="210" y2="220" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFF9CC" />
+                <stop offset="35%" stop-color="#FFD43B" />
+                <stop offset="75%" stop-color="#F59F00" />
+                <stop offset="100%" stop-color="#C97400" />
+              </linearGradient>
+
+              <linearGradient id="bellBrokenGrad" x1="40" y1="50" x2="200" y2="215" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#C9C2B8" />
+                <stop offset="60%" stop-color="#9E9589" />
+                <stop offset="100%" stop-color="#786F64" />
+              </linearGradient>
+
+              <linearGradient id="goldCoinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFF5A8" />
+                <stop offset="60%" stop-color="#FFD43B" />
+                <stop offset="100%" stop-color="#DF8E09" />
+              </linearGradient>
+
+              <linearGradient id="rubyGemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF9EB5" />
+                <stop offset="55%" stop-color="#FF4D79" />
+                <stop offset="100%" stop-color="#C9184A" />
+              </linearGradient>
+
+              <linearGradient id="sapphireGemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#90E0EF" />
+                <stop offset="55%" stop-color="#38BDF8" />
+                <stop offset="100%" stop-color="#0284C7" />
+              </linearGradient>
+
+              <linearGradient id="emeraldGemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#A7F3D0" />
+                <stop offset="55%" stop-color="#34D399" />
+                <stop offset="100%" stop-color="#059669" />
+              </linearGradient>
+
+              <clipPath id="bellWindowClip">
+                <circle cx="120" cy="144" r="35" />
+              </clipPath>
+            </defs>
+
+            <g id="luxurySparkles" class="hidden">
+              <path class="sparkle-item" style="animation-delay:0s" d="M28 62 L32 73 L43 77 L32 81 L28 92 L24 81 L13 77 L24 73 Z" fill="#FFD43B" stroke="#5A381E" stroke-width="2.5" />
+              <path class="sparkle-item" style="animation-delay:0.5s" d="M210 58 L214 68 L224 72 L214 76 L210 86 L206 76 L196 72 L206 68 Z" fill="#FFF08A" stroke="#5A381E" stroke-width="2.5" />
+              <path class="sparkle-item" style="animation-delay:1s" d="M204 166 L207 174 L215 177 L207 180 L204 188 L201 180 L193 177 L201 174 Z" fill="#FF85A1" stroke="#5A381E" stroke-width="2" />
+            </g>
+
+            <g id="fallingDebris" class="hidden">
+              <circle class="pebble-drop" style="animation-delay:0s" cx="96" cy="204" r="4.5" fill="#7D7267" />
+              <circle class="pebble-drop" style="animation-delay:0.45s" cx="122" cy="206" r="3.5" fill="#9E9386" />
+              <circle class="pebble-drop" style="animation-delay:0.85s" cx="144" cy="203" r="5" fill="#695F55" />
+            </g>
+
+            <path id="bellFrill" d="M86 64 C72 42, 92 26, 106 43 C112 28, 128 28, 134 43 C148 26, 168 42, 154 64 Z"
+              fill="#FFE680" stroke="#5A381E" stroke-width="5.5" stroke-linejoin="round" />
+
+            <g id="luxuryCrown" class="hidden">
+              <path d="M92 38 L98 16 L120 30 L142 16 L148 38 Z"
+                fill="#FFD43B" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+              <circle cx="98" cy="14" r="4" fill="#FF6B5B" stroke="#5A381E" stroke-width="2" />
+              <circle cx="120" cy="11" r="4.5" fill="#4FD18B" stroke="#5A381E" stroke-width="2" />
+              <circle cx="142" cy="14" r="4" fill="#FF6B5B" stroke="#5A381E" stroke-width="2" />
+            </g>
+
+            <g id="bellBodyGroup" style="transform-origin: 120px 185px; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);">
+              <path id="bellBodyPath"
+                d="M90 66 C50 86, 38 136, 50 174 C60 202, 92 208, 120 208 C148 208, 180 202, 190 174 C202 136, 190 86, 150 66 Z"
+                fill="url(#bellNormalGrad)" stroke="#5A381E" stroke-width="6" stroke-linejoin="round" />
+
+              <path d="M68 100 C59 120, 58 145, 65 165"
+                stroke="#FFFDF0" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+
+              <circle cx="120" cy="144" r="38" fill="#FFFBEB" stroke="#C7891C" stroke-width="4" stroke-dasharray="6 5" />
+              <g id="coinsInsideWindow" clip-path="url(#bellWindowClip)"></g>
+
+              <g id="brokenPatches" class="hidden">
+                <path d="M138 152 L172 146 L178 178 L144 184 Z"
+                  fill="#B8AFA3" stroke="#5A381E" stroke-width="3.5" stroke-linejoin="round" />
+                <path d="M144 156 L148 180 M156 154 L160 178 M166 152 L170 176"
+                  stroke="#5A381E" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M54 118 L66 124 L56 132 L68 140 L55 147"
+                  fill="none" stroke="#5A381E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M98 106 L108 112 M108 106 L98 112" stroke="#5A381E" stroke-width="3.5" stroke-linecap="round" />
+                <path d="M132 106 L142 112 M142 106 L132 112" stroke="#5A381E" stroke-width="3.5" stroke-linecap="round" />
+                <path d="M108 122 Q120 114 132 122" fill="none" stroke="#5A381E" stroke-width="3.5" stroke-linecap="round" />
+              </g>
+
+              <path id="bellRibbonCord" d="M84 68 Q120 80 156 68"
+                fill="none" stroke="#5A381E" stroke-width="11" stroke-linecap="round" />
+              <path id="bellRibbonColor" d="M84 68 Q120 80 156 68"
+                fill="none" stroke="#FF6B5B" stroke-width="6.5" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- ベル袋と散らばったコインが同じ地面の上にあるイラスト -->
+        <div id="bagOverflowCoins" class="hidden w-full flex items-center justify-center -mt-5 mb-0.5 pointer-events-none" aria-hidden="true"></div>
+
+        <!-- 現在の残高と目標プログレスバー -->
+        <div class="text-center mt-0.5 w-full">
+          <div id="balanceDisplay" class="text-3xl font-black tracking-tight text-[#5A381E]">¥0</div>
+          <p id="bagStatusMessage" class="text-xs font-bold text-[#6E8B74] mt-0.5">
+            「がまん」を押してベル袋をふくらませよう！
+          </p>
+
+          <div class="mt-2.5 px-1">
+            <div class="flex items-center justify-between text-[11px] font-extrabold text-[#7A5C43] mb-1">
+              <span>旅の目標進捗</span>
+              <span id="goalTargetLabel">目標 ¥30,000</span>
+            </div>
+            <div class="w-full h-3.5 rounded-full bg-[#EFE6D5] border-2 border-[#5A381E] overflow-hidden">
+              <div id="goalProgressBar" class="h-full rounded-full bg-gradient-to-r from-[#4FD18B] via-[#FFD43B] to-[#FF8577] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+            <div id="goalProgressCaption" class="text-[11px] font-bold text-[#7A5C43] mt-1 text-right">
+              あと ¥30,000 で目標達成
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- メイン操作ボタン -->
+    <section class="grid grid-cols-2 gap-3 mb-3.5">
+      <button type="button" onclick="openActionModal('save')"
+        class="pop-btn-save py-4 px-3 flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+        <span class="text-2xl leading-none">＋</span>
+        <span class="text-lg font-black tracking-wide">がまん</span>
+        <span class="text-[11px] font-bold opacity-95">ベル袋に貯める</span>
+      </button>
+
+      <button type="button" onclick="openActionModal('spend')"
+        class="pop-btn-spend py-4 px-3 flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+        <span class="text-2xl leading-none">－</span>
+        <span class="text-lg font-black tracking-wide">つかう</span>
+        <span class="text-[11px] font-bold opacity-95">お楽しみ</span>
+      </button>
+    </section>
+
+    <!-- ワンタップクイック貯金 -->
+    <section class="pop-card p-3.5 mb-3.5">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-black text-[#5A381E]">⚡ よくやる「がまん」ワンタップ貯金</span>
+        <span class="text-[10px] font-bold text-[#8A6A4F]">押すだけで即記録</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <button type="button" onclick="quickSave(200, 'お菓子がまん')"
+          class="pop-chip bg-[#FFF8DC] hover:bg-[#FFF0B3] py-2 px-2 text-center cursor-pointer">
+          <div class="text-xs font-black text-[#5A381E]">+¥200</div>
+          <div class="text-[10px] font-bold text-[#7A5C43] truncate">お菓子</div>
+        </button>
+        <button type="button" onclick="quickSave(150, 'ドリンクがまん')"
+          class="pop-chip bg-[#E9FBF1] hover:bg-[#D1F5E1] py-2 px-2 text-center cursor-pointer">
+          <div class="text-xs font-black text-[#247A4C]">+¥150</div>
+          <div class="text-[10px] font-bold text-[#356B4E] truncate">ドリンク</div>
+        </button>
+        <button type="button" onclick="quickSave(700, 'カフェがまん')"
+          class="pop-chip bg-[#FFF4E5] hover:bg-[#FFE6C7] py-2 px-2 text-center cursor-pointer">
+          <div class="text-xs font-black text-[#9C5210]">+¥700</div>
+          <div class="text-[10px] font-bold text-[#6E3D12] truncate">カフェ</div>
+        </button>
+        <button type="button" onclick="quickSave(1000, '外食がまん')"
+          class="pop-chip bg-[#FFF1E6] hover:bg-[#FFE2CC] py-2 px-2 text-center cursor-pointer">
+          <div class="text-xs font-black text-[#B85414]">+¥1,000</div>
+          <div class="text-[10px] font-bold text-[#7D4927] truncate">外食</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ワンタップ貯金下のベル神さま（豆知識・お告げ・応援） -->
+    <section class="pop-card p-3.5 mb-3.5">
+      <div class="flex items-start gap-3">
+        <div id="cornerAvatarBox" class="w-14 h-14 rounded-2xl bg-[#FFF6CC] border-2 border-[#5A381E] flex items-center justify-center shrink-0 god-bob">
+          <svg id="cornerBellGodSvg" viewBox="0 0 120 120" class="w-12 h-12 overflow-visible" aria-hidden="true">
+            <circle cx="60" cy="64" r="36" fill="#FFD43B" stroke="#5A381E" stroke-width="4" />
+            <circle cx="60" cy="24" r="7.5" fill="#FFD43B" stroke="#5A381E" stroke-width="3.5" />
+            <line x1="60" y1="31.5" x2="60" y2="36" stroke="#5A381E" stroke-width="3" />
+            <circle cx="47" cy="58" r="4" fill="#5A381E" />
+            <circle cx="73" cy="58" r="4" fill="#5A381E" />
+            <path d="M51 70 Q60 77 69 70 Z" fill="#FF6B5B" stroke="#5A381E" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M36 82 C36 96, 47 106, 60 107 C73 106, 84 96, 84 82 C77 87, 69 89, 60 86 C51 89, 43 87, 36 82 Z"
+              fill="#FFFFFF" stroke="#5A381E" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+          <svg id="cornerOkanSvg" viewBox="0 0 120 120" style="display: none;" class="w-12 h-12 overflow-visible" aria-hidden="true">
+            <!-- 雲のようにモコモコつながった髪 -->
+            <path d="M40 74 C27 72, 23 61, 29 52 C24 43, 30 31, 41 30 C44 19, 56 15, 65 20 C75 15, 87 20, 90 31 C101 33, 106 45, 100 54 C105 63, 100 73, 86 74 C83 62, 76 52, 60 52 C44 52, 43 62, 40 74 Z"
+              fill="#6E4730" stroke="#5A381E" stroke-width="3.5" stroke-linejoin="round" />
+            <!-- 顔（丸みのあるやさしい輪郭） -->
+            <path d="M39 48 C48 44, 72 44, 81 48 C85 63, 77 78, 60 79 C43 78, 35 63, 39 48 Z"
+              fill="#FFE2C6" stroke="#5A381E" stroke-width="3.5" stroke-linejoin="round" />
+            <!-- 山なりのやさしい眉 -->
+            <path d="M43 54 Q48.5 48.5 54 53.5" fill="none" stroke="#5A381E" stroke-width="2.7" stroke-linecap="round" />
+            <path d="M66 53.5 Q71.5 48.5 77 54" fill="none" stroke="#5A381E" stroke-width="2.7" stroke-linecap="round" />
+            <!-- ほっぺ -->
+            <ellipse cx="45" cy="64" rx="5.2" ry="3.2" fill="#FF9AA2" opacity="0.78" />
+            <ellipse cx="75" cy="64" rx="5.2" ry="3.2" fill="#FF9AA2" opacity="0.78" />
+            <!-- まんまるやさしい目＆小さな笑顔 -->
+            <circle cx="49" cy="59" r="3.4" fill="#5A381E" />
+            <circle cx="71" cy="59" r="3.4" fill="#5A381E" />
+            <circle cx="48" cy="57.8" r="1.1" fill="#FFFFFF" />
+            <circle cx="70" cy="57.8" r="1.1" fill="#FFFFFF" />
+            <path d="M55 68 Q60 72 65 68" fill="none" stroke="#5A381E" stroke-width="2.8" stroke-linecap="round" />
+            <!-- 関西のおばちゃん風：黄色×ヒョウ柄トップス -->
+            <path d="M29 106 C32 84, 45 79, 60 79 C75 79, 88 84, 91 106 Z"
+              fill="#FFD43B" stroke="#5A381E" stroke-width="3.5" stroke-linejoin="round" />
+            <ellipse cx="44" cy="91" rx="4.2" ry="2.6" transform="rotate(-18 44 91)" fill="#5A381E" />
+            <ellipse cx="56" cy="87" rx="3.6" ry="2.2" transform="rotate(12 56 87)" fill="#5A381E" />
+            <ellipse cx="74" cy="89" rx="4.2" ry="2.6" transform="rotate(16 74 89)" fill="#5A381E" />
+            <ellipse cx="50" cy="99" rx="3.8" ry="2.4" transform="rotate(8 50 99)" fill="#5A381E" />
+            <ellipse cx="66" cy="99" rx="4.2" ry="2.5" transform="rotate(-12 66 99)" fill="#5A381E" />
+            <ellipse cx="78" cy="98" rx="3.5" ry="2.2" transform="rotate(-8 78 98)" fill="#5A381E" />
+            <path d="M47 79 Q60 89 73 79" fill="none" stroke="#FF69B4" stroke-width="3.2" stroke-linecap="round" />
+          </svg>
+          <!-- 節約博士（40代男性・七三ヘア・四角いメガネ・スーツ） -->
+          <svg id="cornerDoctorSvg" viewBox="0 0 120 120" style="display: none;" class="w-12 h-12 overflow-visible" aria-hidden="true">
+            <!-- 顔（やや面長の40代男性輪郭） -->
+            <path d="M39 45 C49 41, 73 41, 83 45 C85 63, 79 76, 61 79 C43 76, 37 63, 39 45 Z"
+              fill="#F7D5B5" stroke="#5A381E" stroke-width="3.3" stroke-linejoin="round" />
+            <!-- 七三ヘア（厚みを半分くらいにスッキリ調整） -->
+            <path d="M38 49 C37 35, 49 29, 68 29 C85 29, 92 35, 89 48 C82 43, 74 42, 62 43.5 C50 45, 43 46.5, 38 49 Z"
+              fill="#3B332E" stroke="#5A381E" stroke-width="3.2" stroke-linejoin="round" />
+            <path d="M66 30 L62 43" stroke="#5A381E" stroke-width="2.3" stroke-linecap="round" />
+            <!-- 眉・四角いメガネ・知的な口元（メガネ下の目は非表示） -->
+            <path d="M42 50 L55 51" stroke="#3B332E" stroke-width="3" stroke-linecap="round" />
+            <path d="M67 51 L80 50" stroke="#3B332E" stroke-width="3" stroke-linecap="round" />
+            <rect x="41" y="53" width="16" height="10" rx="2" fill="#FFFDF7" stroke="#5A381E" stroke-width="2.4" />
+            <rect x="65" y="53" width="16" height="10" rx="2" fill="#FFFDF7" stroke="#5A381E" stroke-width="2.4" />
+            <line x1="57" y1="57" x2="65" y2="57" stroke="#5A381E" stroke-width="2.4" />
+            <line x1="41" y1="53" x2="39" y2="52" stroke="#5A381E" stroke-width="2" />
+            <line x1="81" y1="53" x2="83" y2="52" stroke="#5A381E" stroke-width="2" />
+            <path d="M55 70 L67 68.5" fill="none" stroke="#5A381E" stroke-width="2.6" stroke-linecap="round" />
+            <!-- スーツ＋シャツ＋ネクタイ＋胸ポケットのグラフ定規 -->
+            <path d="M27 107 C30 84, 44 79, 61 79 C78 79, 92 84, 95 107 Z"
+              fill="#2C3E55" stroke="#5A381E" stroke-width="3.3" stroke-linejoin="round" />
+            <polygon points="52,79 70,79 61,99" fill="#FFFFFF" stroke="#5A381E" stroke-width="2.2" stroke-linejoin="round" />
+            <polygon points="59,84 63,84 64,104 61,108 58,104" fill="#D9534F" stroke="#5A381E" stroke-width="1.8" stroke-linejoin="round" />
+            <!-- 胸ポケットに差した「右肩上がりグラフ定規」 -->
+            <rect x="70" y="88" width="12" height="14" rx="1.5" fill="#FFFDF7" stroke="#5A381E" stroke-width="1.8" />
+            <polyline points="72,99 75,95 78,97 80,91" fill="none" stroke="#2AA866" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- 右上に浮く数式・円グラフバッジ -->
+            <circle cx="98" cy="24" r="11" fill="#FFF2B2" stroke="#5A381E" stroke-width="2.2" />
+            <path d="M98 24 L98 15 A9 9 0 0 1 106 27 Z" fill="#4FD18B" stroke="#5A381E" stroke-width="1.4" />
+          </svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center justify-between gap-2 mb-1">
+            <span id="godCornerTag" class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#FFF2B2] text-[#5A381E] border border-[#5A381E]">
+              💡 節約豆知識
+            </span>
+            <button type="button" onclick="cycleGodCornerMessage()"
+              class="text-[10px] font-black text-[#247A4C] bg-[#E9FBF1] hover:bg-[#D1F5E1] px-2.5 py-0.5 rounded-full border border-[#5A381E] cursor-pointer">
+              次の言葉
+            </button>
+          </div>
+          <p id="godCornerText" class="text-xs font-bold text-[#5A381E] leading-relaxed">
+            マイボトルを1日1回持ち歩くだけで、月3,000円以上のドリンク代が旅資金に変わるぞよ〜！
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 履歴リスト -->
+    <section class="pop-card p-4">
+      <div class="flex items-center justify-between mb-2.5">
+        <h2 class="text-sm font-black text-[#5A381E]">📜 ベル袋のきろく</h2>
+        <span id="historyCountLabel" class="text-[11px] font-bold text-[#7A5C43]">0件</span>
+      </div>
+      <div id="historyList" class="space-y-2 max-h-64 overflow-y-auto pr-0.5">
+        <div class="text-center py-6 text-xs font-bold text-[#8E735B]">
+          まだきろくがありません。<br />「がまん」や「つかう」を押してね！
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 金額入力モーダル -->
+  <div id="actionModal" class="fixed inset-0 z-40 hidden items-end sm:items-center justify-center bg-[#3B2616]/45 backdrop-blur-[2px] p-3">
+    <div class="pop-card w-full max-w-md p-5 god-enter">
+      <div class="flex items-center justify-between mb-3">
+        <h3 id="actionModalTitle" class="text-lg font-black text-[#5A381E]">＋ がまんを記録（貯める）</h3>
+        <button type="button" onclick="closeActionModal()"
+          class="w-8 h-8 rounded-full bg-[#F5EFE4] border-2 border-[#5A381E] font-black text-sm flex items-center justify-center cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between mb-1">
+        <label class="block text-xs font-extrabold text-[#7A5C43]">金額（ボタンで追加）</label>
+      </div>
+
+      <div class="w-full px-4 py-2.5 rounded-2xl border-[2.5px] border-[#5A381E] bg-[#FFFDF8] text-2xl font-black text-[#5A381E] text-center mb-3">
+        <span id="selectedAmountDisplay">¥0</span>
+      </div>
+
+      <div class="grid grid-cols-4 gap-1.5 mb-3">
+        <button type="button" onclick="addPresetAmount(10)" class="pop-chip bg-[#FFF9E2] py-2 text-xs font-black cursor-pointer">+¥10</button>
+        <button type="button" onclick="addPresetAmount(100)" class="pop-chip bg-[#FFF9E2] py-2 text-xs font-black cursor-pointer">+¥100</button>
+        <button type="button" onclick="addPresetAmount(500)" class="pop-chip bg-[#FFF9E2] py-2 text-xs font-black cursor-pointer">+¥500</button>
+        <button type="button" onclick="addPresetAmount(1000)" class="pop-chip bg-[#FFF9E2] py-2 text-xs font-black cursor-pointer">+¥1,000</button>
+      </div>
+      <div class="flex justify-end mb-3">
+        <button type="button" onclick="resetPresetAmount()" class="pop-chip bg-[#FFE8E5] text-[#C93B2B] px-3 py-1 text-xs font-black cursor-pointer">金額をリセット</button>
+      </div>
+
+      <!-- 品目ワンタッチ登録＋自由入力 -->
+      <label class="block text-xs font-extrabold text-[#7A5C43] mb-1.5">品目候補（タップで欄に入力）</label>
+      <div id="situationChoices" class="grid grid-cols-2 gap-2 mb-3"></div>
+
+      <label for="actionMemoInput" class="block text-xs font-extrabold text-[#7A5C43] mb-1">理由・メモ（品目）</label>
+      <input id="actionMemoInput" type="text" maxlength="40" placeholder="例：コンビニスイーツ、ごほうびケーキ"
+        class="w-full px-3.5 py-2.5 rounded-2xl border-[2.5px] border-[#5A381E] bg-[#FFFDF8] text-sm font-bold text-[#5A381E] mb-4 focus:outline-none" />
+
+      <button id="actionSubmitBtn" type="button" onclick="submitActionModal()"
+        class="w-full py-3.5 pop-btn-save text-base font-black cursor-pointer">
+        ベル袋に入れる！
+      </button>
+    </div>
+  </div>
+
+  <!-- ベル神さま降臨オーバーレイ -->
+  <div id="godOverlay" onclick="closeGodOverlay()"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-[#2E1C0E]/55 backdrop-blur-[3px] p-4">
+    <div onclick="event.stopPropagation()" class="pop-card w-full max-w-sm p-5 text-center god-enter relative overflow-hidden">
+      <div id="godAura" class="mx-auto mb-2 w-28 h-28 rounded-full flex items-center justify-center god-bob">
+        <svg id="bellGodSvg" viewBox="0 0 180 180" class="w-24 h-24 overflow-visible">
+          <defs>
+            <radialGradient id="godCoinGrad" cx="38%" cy="32%" r="68%">
+              <stop offset="0%" stop-color="#FFF9BF" />
+              <stop offset="55%" stop-color="#FFD43B" />
+              <stop offset="100%" stop-color="#D98A08" />
+            </radialGradient>
+          </defs>
+
+          <ellipse id="godHalo" cx="90" cy="18" rx="34" ry="7.5" fill="none" stroke="#FFD43B" stroke-width="5" />
+
+          <!-- コイン風の神さま顔本体 -->
+          <circle id="godBody" cx="90" cy="96" r="54"
+            fill="url(#godCoinGrad)" stroke="#5A381E" stroke-width="5" />
+          <!-- コインの内側の刻印リング -->
+          <circle cx="90" cy="96" r="45"
+            fill="none" stroke="#B87606" stroke-width="2" stroke-dasharray="5 4" opacity="0.65" />
+
+          <circle cx="90" cy="36" r="10.5" fill="#FFD43B" stroke="#5A381E" stroke-width="4.5" />
+          <line x1="90" y1="46.5" x2="90" y2="52" stroke="#5A381E" stroke-width="3.5" />
+
+          <path id="godBrowL" d="M62 78 Q72 72 80 78" fill="none" stroke="#5A381E" stroke-width="4.5" stroke-linecap="round" />
+          <path id="godBrowR" d="M100 78 Q108 72 118 78" fill="none" stroke="#5A381E" stroke-width="4.5" stroke-linecap="round" />
+
+          <g id="godEyes">
+            <circle cx="71" cy="90" r="6" fill="#5A381E" />
+            <circle cx="109" cy="90" r="6" fill="#5A381E" />
+            <circle cx="69" cy="88" r="2" fill="#FFFFFF" />
+            <circle cx="107" cy="88" r="2" fill="#FFFFFF" />
+          </g>
+
+          <path id="godMouth" d="M77 104 Q90 116 103 104 Z" fill="#FF6B5B" stroke="#5A381E" stroke-width="3.5" stroke-linejoin="round" />
+
+          <!-- 立派なしろひげ（口ひげ＆あごひげ） -->
+          <g id="godWhiteBeard">
+            <!-- あごのふさふさしろひげ -->
+            <path d="M56 122 C54 144, 70 160, 90 162 C110 160, 126 144, 124 122 C115 130, 103 132, 90 128 C77 132, 65 130, 56 122 Z"
+              fill="#FFFFFF" stroke="#5A381E" stroke-width="4" stroke-linejoin="round" />
+            <!-- くるんとカールした口ひげ -->
+            <path d="M88 104 C76 98, 56 98, 44 108 C38 113, 40 121, 47 120 C52 119, 53 113, 49 111 C58 106, 74 107, 88 110 Z"
+              fill="#FFFFFF" stroke="#5A381E" stroke-width="3.8" stroke-linejoin="round" />
+            <path d="M92 104 C104 98, 124 98, 136 108 C142 113, 140 121, 133 120 C128 119, 127 113, 131 111 C122 106, 106 107, 92 110 Z"
+              fill="#FFFFFF" stroke="#5A381E" stroke-width="3.8" stroke-linejoin="round" />
+          </g>
+
+          <g id="godAngerMark" class="hidden">
+            <path d="M134 36 L140 42 M140 36 L134 42" stroke="#FF3B30" stroke-width="4" stroke-linecap="round" />
+            <circle cx="137" cy="39" r="9" fill="none" stroke="#FF3B30" stroke-width="2.5" />
+          </g>
+        </svg>
+
+        <!-- オカン選択時のイラスト -->
+        <svg id="okanGodSvg" viewBox="0 0 180 180" class="hidden w-24 h-24 overflow-visible">
+          <!-- 雲のようにモコモコつながった髪 -->
+          <path d="M58 106 C39 103, 33 87, 42 74 C35 61, 44 44, 60 43 C65 27, 81 21, 93 28 C108 21, 125 28, 129 44 C145 46, 152 63, 143 76 C150 89, 143 104, 124 106 C120 89, 112 73, 90 73 C68 73, 62 89, 58 106 Z"
+            fill="#6E4730" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+          <!-- 顔（丸みのあるやさしい輪郭） -->
+          <path d="M57 68 C70 62, 110 62, 123 68 C129 91, 116 114, 90 115 C64 114, 51 91, 57 68 Z"
+            fill="#FFE2C6" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+          <!-- 山なりのやさしい眉 -->
+          <path d="M62 76 Q70.5 68.5 79 75.5" fill="none" stroke="#5A381E" stroke-width="3.8" stroke-linecap="round" />
+          <path d="M101 75.5 Q109.5 68.5 118 76" fill="none" stroke="#5A381E" stroke-width="3.8" stroke-linecap="round" />
+          <!-- ほっぺ -->
+          <ellipse cx="66" cy="92" rx="7.5" ry="4.5" fill="#FF9AA2" opacity="0.78" />
+          <ellipse cx="114" cy="92" rx="7.5" ry="4.5" fill="#FF9AA2" opacity="0.78" />
+          <!-- まんまるやさしい目＆小さな笑顔 -->
+          <circle cx="72" cy="85" r="4.8" fill="#5A381E" />
+          <circle cx="108" cy="85" r="4.8" fill="#5A381E" />
+          <circle cx="70.5" cy="83.2" r="1.6" fill="#FFFFFF" />
+          <circle cx="106.5" cy="83.2" r="1.6" fill="#FFFFFF" />
+          <path d="M81 98 Q90 105 99 98" fill="none" stroke="#5A381E" stroke-width="3.8" stroke-linecap="round" />
+          <!-- 関西のおばちゃん風：黄色×ヒョウ柄＆アクセサリー -->
+          <path d="M40 162 C44 125, 65 115, 90 115 C115 115, 136 125, 140 162 Z"
+            fill="#FFD43B" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+          <ellipse cx="63" cy="134" rx="6.5" ry="4" transform="rotate(-16 63 134)" fill="#5A381E" />
+          <ellipse cx="83" cy="128" rx="5.5" ry="3.4" transform="rotate(10 83 128)" fill="#5A381E" />
+          <ellipse cx="114" cy="132" rx="6.5" ry="4" transform="rotate(18 114 132)" fill="#5A381E" />
+          <ellipse cx="73" cy="147" rx="6" ry="3.6" transform="rotate(8 73 147)" fill="#5A381E" />
+          <ellipse cx="98" cy="148" rx="6.5" ry="4" transform="rotate(-12 98 148)" fill="#5A381E" />
+          <ellipse cx="121" cy="146" rx="5.5" ry="3.4" transform="rotate(-10 121 146)" fill="#5A381E" />
+          <path d="M68 115 Q90 130 112 115" fill="none" stroke="#FF69B4" stroke-width="4.2" stroke-linecap="round" />
+          <circle cx="90" cy="126" r="4.5" fill="#FF69B4" stroke="#5A381E" stroke-width="2.2" />
+        </svg>
+
+        <!-- 節約博士選択時のイラスト -->
+        <svg id="doctorGodSvg" viewBox="0 0 180 180" class="hidden w-24 h-24 overflow-visible">
+          <!-- 背後のインテリ後光＆右肩上がりグラフパネル -->
+          <rect x="122" y="24" width="44" height="34" rx="6" fill="#FFFDF7" stroke="#5A381E" stroke-width="3" />
+          <line x1="129" y1="50" x2="159" y2="50" stroke="#5A381E" stroke-width="2" />
+          <line x1="129" y1="31" x2="129" y2="50" stroke="#5A381E" stroke-width="2" />
+          <polyline points="131,46 139,40 146,43 157,31" fill="none" stroke="#2AA866" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+          <polygon points="157,31 151,31 157,37" fill="#2AA866" />
+          <!-- 顔（40代男性の落ち着いた輪郭） -->
+          <path d="M57 66 C71 61, 109 61, 123 66 C127 93, 118 113, 90 118 C62 113, 53 93, 57 66 Z"
+            fill="#F7D5B5" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+          <!-- 七三ヘア（厚みを半分くらいにスッキリ調整） -->
+          <path d="M56 71 C55 51, 73 43, 101 43 C126 43, 138 51, 134 70 C124 62, 111 60.5, 94 62.5 C74 64.5, 62 67, 56 71 Z"
+            fill="#3B332E" stroke="#5A381E" stroke-width="4.2" stroke-linejoin="round" />
+          <path d="M98 44 L92 62" stroke="#5A381E" stroke-width="3.2" stroke-linecap="round" />
+          <!-- 眉・四角いメガネ・不敵な口元（メガネ下の目は非表示） -->
+          <path d="M60 74 L80 76" stroke="#3B332E" stroke-width="4" stroke-linecap="round" />
+          <path d="M100 76 L120 74" stroke="#3B332E" stroke-width="4" stroke-linecap="round" />
+          <rect x="59" y="78" width="24" height="15" rx="3" fill="#FFFDF7" stroke="#5A381E" stroke-width="3.5" />
+          <rect x="97" y="78" width="24" height="15" rx="3" fill="#FFFDF7" stroke="#5A381E" stroke-width="3.5" />
+          <line x1="83" y1="84" x2="97" y2="84" stroke="#5A381E" stroke-width="3.5" />
+          <!-- メガネのキラリ反射 -->
+          <line x1="63" y1="81" x2="68" y2="86" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round" />
+          <line x1="101" y1="81" x2="106" y2="86" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round" />
+          <path d="M80 104 Q90 109 101 102" fill="none" stroke="#5A381E" stroke-width="3.8" stroke-linecap="round" />
+          <!-- スーツ・シャツ・ネクタイ・ポケットのグラフ定規 -->
+          <path d="M38 162 C42 126, 64 118, 90 118 C116 118, 138 126, 142 162 Z"
+            fill="#2C3E55" stroke="#5A381E" stroke-width="4.5" stroke-linejoin="round" />
+          <polygon points="76,118 104,118 90,149" fill="#FFFFFF" stroke="#5A381E" stroke-width="3.2" stroke-linejoin="round" />
+          <polygon points="87,125 93,125 95,156 90,162 85,156" fill="#D9534F" stroke="#5A381E" stroke-width="2.5" stroke-linejoin="round" />
+          <rect x="106" y="131" width="18" height="20" rx="2.5" fill="#FFFDF7" stroke="#5A381E" stroke-width="2.6" />
+          <polyline points="109,147 113,141 117,144 121,135" fill="none" stroke="#2AA866" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <div id="godTitleBadge"
+        class="inline-block px-3 py-0.5 rounded-full text-xs font-black border-2 border-[#5A381E] bg-[#FFF2B2] mb-1.5">
+        ベル神さまのお告げ
+      </div>
+
+      <div id="godDeltaText" class="text-2xl font-black text-[#247A4C] mb-1.5">+¥500</div>
+
+      <p id="godMessageText" class="text-sm font-bold text-[#5A381E] leading-relaxed mb-4">
+        みごとながまんじゃ！旅の切符がまた一歩近づいたぞよ〜！
+      </p>
+
+      <button type="button" onclick="closeGodOverlay()"
+        class="w-full py-3 rounded-2xl bg-[#FFE680] hover:bg-[#FFD84D] border-[2.5px] border-[#5A381E] shadow-[0_4px_0_#5A381E] font-black text-sm text-[#5A381E] active:translate-y-0.5 cursor-pointer">
+        ありがたい！（タップで閉じる）
+      </button>
+    </div>
+  </div>
+
+  <!-- 設定モーダル -->
+  <div id="settingsModal" class="fixed inset-0 z-40 hidden items-end sm:items-center justify-center bg-[#3B2616]/45 backdrop-blur-[2px] p-3">
+    <div class="pop-card w-full max-w-md p-5 god-enter">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-black text-[#5A381E]">⚙️ 旅の目標とベル袋設定</h3>
+        <button type="button" onclick="closeSettingsModal()"
+          class="w-8 h-8 rounded-full bg-[#F5EFE4] border-2 border-[#5A381E] font-black text-sm flex items-center justify-center cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <label class="block text-xs font-extrabold text-[#7A5C43] mb-1">旅行の目標タイトル</label>
+      <input id="goalTitleInput" type="text" maxlength="24" placeholder="例：京都・温泉ごほうび旅"
+        class="w-full px-3.5 py-2.5 rounded-2xl border-[2.5px] border-[#5A381E] bg-[#FFFDF8] text-sm font-bold text-[#5A381E] mb-3 focus:outline-none" />
+
+      <label class="block text-xs font-extrabold text-[#7A5C43] mb-1">目標金額（円）</label>
+      <input id="goalAmountInput" type="number" inputmode="numeric" min="100" step="500" placeholder="30000"
+        class="w-full px-3.5 py-2.5 rounded-2xl border-[2.5px] border-[#5A381E] bg-[#FFFDF8] text-base font-black text-[#5A381E] mb-3 focus:outline-none" />
+
+      <label class="block text-xs font-extrabold text-[#7A5C43] mb-1.5">案内キャラクター（いつでも切替）</label>
+      <div class="grid grid-cols-3 gap-1.5 mb-4">
+        <button id="charChoiceBellGod" type="button" onclick="selectCharacterChoice('bell_god')"
+          class="pop-chip py-2.5 px-1.5 bg-[#FFF2B2] text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer">
+          🔔 ベル神さま
+        </button>
+        <button id="charChoiceOkan" type="button" onclick="selectCharacterChoice('okan')"
+          class="pop-chip py-2.5 px-1.5 bg-[#FFFDF8] text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer">
+          🍳 オカン
+        </button>
+        <button id="charChoiceDoctor" type="button" onclick="selectCharacterChoice('doctor')"
+          class="pop-chip py-2.5 px-1.5 bg-[#FFFDF8] text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer">
+          👓 節約博士
+        </button>
+      </div>
+
+      <button type="button" onclick="saveSettingsModal()"
+        class="w-full py-3 pop-btn-save text-sm font-black mb-3 cursor-pointer">
+        保存する
+      </button>
+
+      <!-- インライン確認（confirm()の代替） -->
+      <div id="resetConfirmBox" class="hidden mb-3 p-3 rounded-2xl bg-[#FFF0EE] border-2 border-[#C93B2B]">
+        <p class="text-xs font-extrabold text-[#B8291B] mb-2">残高と記録をすべて初期状態（¥0・0件）に戻しますか？</p>
+        <div class="flex gap-2">
+          <button type="button" onclick="executeResetAllData()"
+            class="flex-1 py-1.5 rounded-xl bg-[#C93B2B] text-white text-xs font-black cursor-pointer">
+            リセット実行
+          </button>
+          <button type="button" onclick="cancelResetConfirm()"
+            class="flex-1 py-1.5 rounded-xl bg-white text-[#5A381E] border border-[#5A381E] text-xs font-black cursor-pointer">
+            キャンセル
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t-2 border-dashed border-[#DFD2BE] flex items-center justify-between gap-2">
+        <span class="text-[11px] font-bold text-[#8A6A4F]">記録・残高をすべてリセット</span>
+        <button type="button" onclick="promptResetAllData()"
+          class="px-3 py-1.5 rounded-xl bg-[#FFE5E2] text-[#C93B2B] border-2 border-[#C93B2B] text-xs font-black cursor-pointer">
+          初期化
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ホーム画面追加案内モーダル -->
+  <div id="installModal" class="fixed inset-0 z-40 hidden items-end sm:items-center justify-center bg-[#3B2616]/45 backdrop-blur-[2px] p-3">
+    <div class="pop-card w-full max-w-md p-5 god-enter">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-black text-[#5A381E]">📲 ホーム画面に追加</h3>
+        <button type="button" onclick="closeInstallModal()"
+          class="w-8 h-8 rounded-full bg-[#F5EFE4] border-2 border-[#5A381E] font-black text-sm flex items-center justify-center cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <p class="text-xs font-bold text-[#6E5139] leading-relaxed mb-3">
+        ホーム画面にベル袋アイコンを置くと、アプリのように全画面でサッと「がまん」を記録できます！
+      </p>
+
+      <div class="space-y-2.5 text-xs font-bold text-[#5A381E] bg-[#FFF9E6] p-3.5 rounded-2xl border-2 border-[#5A381E] mb-4">
+        <div>
+          <span class="font-black text-[#247A4C]">■ Pixel / Android（Chrome）：</span><br />
+          右上の「︙」メニュー →「<strong>ホーム画面に追加</strong>」または「<strong>アプリをインストール</strong>」をタップ。
+        </div>
+        <div>
+          <span class="font-black text-[#B85414]">■ iPhone（Safari）：</span><br />
+          共有ボタン（□↑）→「<strong>ホーム画面に追加</strong>」をタップ。
+        </div>
+      </div>
+
+      <button type="button" onclick="closeInstallModal()"
+        class="w-full py-2.5 rounded-2xl bg-[#FFE680] border-[2.5px] border-[#5A381E] font-black text-sm text-[#5A381E] cursor-pointer">
+        わかった！
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================
+    // 状態管理と永続化
+    // =========================================================
+    const STORAGE_KEY = 'tabi_bell_savings_v1';
+
+    const DEFAULT_STATE = {
+      balance: 0,
+      goalTitle: '週末ごほうび旅',
+      goalAmount: 30000,
+      character: 'bell_god',
+      soundEnabled: true,
+      history: []
+    };
+
+    const VALID_CHARACTERS = ['bell_god', 'okan', 'doctor'];
+
+    function normalizeCharacter(charKey) {
+      return VALID_CHARACTERS.includes(charKey) ? charKey : 'bell_god';
+    }
+
+    let state = loadState();
+    let currentActionType = 'save';
+    let selectedActionAmount = 0;
+    let selectedSettingsCharacter = state.character || 'bell_god';
+    let audioCtx = null;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...DEFAULT_STATE };
+        const parsed = JSON.parse(raw);
+        return {
+          balance: typeof parsed.balance === 'number' ? parsed.balance : 0,
+          goalTitle: typeof parsed.goalTitle === 'string' && parsed.goalTitle.trim() ? parsed.goalTitle.trim() : DEFAULT_STATE.goalTitle,
+          goalAmount: typeof parsed.goalAmount === 'number' && parsed.goalAmount > 0 ? parsed.goalAmount : DEFAULT_STATE.goalAmount,
+          character: normalizeCharacter(parsed.character),
+          soundEnabled: typeof parsed.soundEnabled === 'boolean' ? parsed.soundEnabled : true,
+          history: Array.isArray(parsed.history) ? parsed.history : []
+        };
+      } catch (e) {
+        console.warn('状態読み込みに失敗しました:', e);
+        return { ...DEFAULT_STATE };
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.warn('保存に失敗しました:', e);
+      }
+      renderAll();
+    }
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY) {
+        state = loadState();
+        renderAll();
+      }
+    });
+
+    // =========================================================
+    // Web Audio API による効果音再生
+    // =========================================================
+    function playTone(freq, duration, type = 'sine', delay = 0, gainPeak = 0.14, endFreq = null) {
+      if (!state.soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const now = audioCtx.currentTime + delay;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+        if (endFreq && endFreq > 0) {
+          osc.frequency.exponentialRampToValueAtTime(endFreq, now + duration);
+        }
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(gainPeak, now + 0.008);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + duration + 0.02);
+      } catch (e) {
+        // 音声再生不可環境は安全に無視
+      }
+    }
+
+    // 短い金属ノイズ（コインが触れ合う「シャッ」感）
+    function playCoinClinkNoise(delay = 0, duration = 0.05, gainPeak = 0.09) {
+      if (!state.soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const sampleRate = audioCtx.sampleRate;
+        const length = Math.max(1, Math.floor(sampleRate * duration));
+        const buffer = audioCtx.createBuffer(1, length, sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < length; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (length * 0.35));
+        }
+
+        const now = audioCtx.currentTime + delay;
+        const src = audioCtx.createBufferSource();
+        src.buffer = buffer;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(5200, now);
+        filter.Q.setValueAtTime(4.5, now);
+
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(gainPeak, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        src.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        src.start(now);
+      } catch (e) {
+        // 音声再生不可環境は安全に無視
+      }
+    }
+
+    function playSaveSound() {
+      // コインがすれ違う「シャッ」＋「チャリ〜ン」と伸びる金属倍音
+      playCoinClinkNoise(0.0, 0.045, 0.085);
+      playTone(2349.32, 0.14, 'sine', 0.015, 0.11, 2489.02); // D7付近の金属アタック
+      playTone(3520.00, 0.16, 'sine', 0.02, 0.075, 3729.31); // 高次倍音
+
+      playCoinClinkNoise(0.11, 0.055, 0.095);
+      playTone(2637.02, 0.48, 'sine', 0.125, 0.14, 2660.0); // E7の「チャリーン」余韻
+      playTone(3951.07, 0.36, 'sine', 0.13, 0.085, 3980.0); // G#7倍音
+      playTone(5274.04, 0.22, 'triangle', 0.13, 0.045, 5300.0); // 煌めき倍音
+    }
+
+    function playSpendSound(isNegativeAfter) {
+      // 我慢を発散して気持ちよく使う、軽快で前向きな上昇トーン
+      if (!state.soundEnabled) return;
+      playTone(523.25, 0.14, 'triangle', 0, 0.12);     // C5
+      playTone(659.25, 0.16, 'triangle', 0.08, 0.13);  // E5
+      playTone(783.99, 0.26, 'sine', 0.16, 0.14);      // G5
+    }
+
+    function toggleSound() {
+      state.soundEnabled = !state.soundEnabled;
+      saveState();
+      if (state.soundEnabled) {
+        playTone(880, 0.15, 'sine', 0, 0.12);
+      }
+    }
+
+    // =========================================================
+    // 1000円未満はコイン・1000円以上はお札が降るアニメーション
+    // =========================================================
+    function spawnFallingMoney(amount) {
+      const isBill = Number(amount) >= 1000;
+      const count = isBill ? 12 : 16;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        const delay = (i * 0.055 + Math.random() * 0.08).toFixed(2);
+        const duration = (isBill ? 1.45 + Math.random() * 0.55 : 1.05 + Math.random() * 0.45).toFixed(2);
+        // 画面中央（24%〜76%）を中心に広がるように配置
+        const leftPct = (24 + Math.random() * 52).toFixed(1);
+
+        if (isBill) {
+          const sway = ((Math.random() * 2 - 1) * 28).toFixed(1);
+          const tilt = ((Math.random() * 2 - 1) * 24).toFixed(1);
+          el.className = 'falling-bill-item';
+          el.style.setProperty('--bill-left', `${leftPct}%`);
+          el.style.setProperty('--bill-delay', `${delay}s`);
+          el.style.setProperty('--bill-duration', `${duration}s`);
+          el.style.setProperty('--bill-sway', `${sway}px`);
+          el.style.setProperty('--bill-tilt', `${tilt}deg`);
+          el.innerHTML = `
+            <svg viewBox="0 0 80 42" class="w-full h-full overflow-visible">
+              <rect x="2" y="2" width="76" height="38" rx="6"
+                fill="#F7E8A4" stroke="#5A381E" stroke-width="3" />
+              <rect x="8" y="7" width="64" height="28" rx="3"
+                fill="none" stroke="#C79A2B" stroke-width="1.8" stroke-dasharray="4 3" />
+              <circle cx="40" cy="21" r="9"
+                fill="#FFE066" stroke="#5A381E" stroke-width="2" />
+              <text x="40" y="24.5" text-anchor="middle" font-size="10" font-weight="900" fill="#5A381E">¥</text>
+            </svg>
+          `;
+        } else {
+          const size = Math.round(28 + Math.random() * 12);
+          const drift = ((Math.random() * 2 - 1) * 22).toFixed(1);
+          const spin = Math.round((Math.random() > 0.5 ? 1 : -1) * (420 + Math.random() * 360));
+          el.className = 'falling-coin-item';
+          el.style.setProperty('--coin-left', `${leftPct}%`);
+          el.style.setProperty('--coin-size', `${size}px`);
+          el.style.setProperty('--coin-delay', `${delay}s`);
+          el.style.setProperty('--coin-duration', `${duration}s`);
+          el.style.setProperty('--coin-drift', `${drift}px`);
+          el.style.setProperty('--coin-spin', `${spin}deg`);
+          el.innerHTML = `
+            <svg viewBox="0 0 48 48" class="w-full h-full overflow-visible">
+              <circle cx="24" cy="24" r="20"
+                fill="#FFD43B" stroke="#5A381E" stroke-width="3.2" />
+              <circle cx="24" cy="24" r="14"
+                fill="none" stroke="#B87606" stroke-width="1.8" />
+              <text x="24" y="29" text-anchor="middle" font-size="15" font-weight="900" fill="#5A381E">¥</text>
+            </svg>
+          `;
+        }
+
+        document.body.appendChild(el);
+        const totalMs = (parseFloat(delay) + parseFloat(duration)) * 1000 + 150;
+        setTimeout(() => {
+          el.remove();
+        }, totalMs);
+      }
+    }
+
+    // 「つかう」時：1000円未満は天使の羽＆輪っか付きコイン、1000円以上は紙幣が天に召される演出
+    function spawnAscendingMoney(amount) {
+      const isBill = Number(amount) >= 1000;
+      const count = isBill ? 10 : 12;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        const delay = (i * 0.07 + Math.random() * 0.08).toFixed(2);
+        const duration = (isBill ? 1.55 + Math.random() * 0.45 : 1.35 + Math.random() * 0.45).toFixed(2);
+        // 画面中央（26%〜74%）を中心に昇るように配置
+        const leftPct = (26 + Math.random() * 48).toFixed(1);
+        const sway = ((Math.random() * 2 - 1) * 24).toFixed(1);
+
+        if (isBill) {
+          const tilt = ((Math.random() * 2 - 1) * 18).toFixed(1);
+          el.className = 'ascending-bill-item';
+          el.style.setProperty('--ascend-left', `${leftPct}%`);
+          el.style.setProperty('--ascend-delay', `${delay}s`);
+          el.style.setProperty('--ascend-duration', `${duration}s`);
+          el.style.setProperty('--ascend-sway', `${sway}px`);
+          el.style.setProperty('--ascend-tilt', `${tilt}deg`);
+          el.innerHTML = `
+            <svg viewBox="0 0 88 46" class="w-full h-full overflow-visible">
+              <!-- 天使の輪っか（紙幣の上） -->
+              <ellipse cx="44" cy="-5" rx="14" ry="3.5" fill="none" stroke="#FFF3A1" stroke-width="2.6" />
+              <!-- 紙幣本体 -->
+              <rect x="4" y="4" width="80" height="38" rx="6"
+                fill="#FFF4BA" stroke="#5A381E" stroke-width="2.8" />
+              <rect x="10" y="9" width="68" height="28" rx="3"
+                fill="none" stroke="#C79A2B" stroke-width="1.6" stroke-dasharray="4 3" />
+              <circle cx="44" cy="23" r="9"
+                fill="#FFE066" stroke="#5A381E" stroke-width="2" />
+              <text x="44" y="26.5" text-anchor="middle" font-size="10" font-weight="900" fill="#5A381E">¥</text>
+              <!-- 左右の小さな天使の羽 -->
+              <path d="M4 18 C-7 10, -11 18, -3 23 C-9 25, -7 31, 4 27 Z"
+                fill="#FFFFFF" stroke="#5A381E" stroke-width="2" stroke-linejoin="round" />
+              <path d="M84 18 C95 10, 99 18, 91 23 C97 25, 95 31, 84 27 Z"
+                fill="#FFFFFF" stroke="#5A381E" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          `;
+        } else {
+          const size = Math.round(38 + Math.random() * 10);
+          const tilt = ((Math.random() * 2 - 1) * 12).toFixed(1);
+          el.className = 'ascending-angel-coin';
+          el.style.setProperty('--ascend-left', `${leftPct}%`);
+          el.style.setProperty('--ascend-size', `${size}px`);
+          el.style.setProperty('--ascend-delay', `${delay}s`);
+          el.style.setProperty('--ascend-duration', `${duration}s`);
+          el.style.setProperty('--ascend-sway', `${sway}px`);
+          el.style.setProperty('--ascend-tilt', `${tilt}deg`);
+          el.innerHTML = `
+            <svg viewBox="0 0 64 64" class="w-full h-full overflow-visible">
+              <!-- 天使の輪っか -->
+              <ellipse cx="32" cy="7" rx="11" ry="3.2" fill="none" stroke="#FFF3A1" stroke-width="2.6" />
+              <!-- 左の羽 -->
+              <path d="M15 32 C4 22, 1 32, 9 37 C3 39, 5 46, 15 41 Z"
+                fill="#FFFFFF" stroke="#5A381E" stroke-width="2.2" stroke-linejoin="round" />
+              <!-- 右の羽 -->
+              <path d="M49 32 C60 22, 63 32, 55 37 C61 39, 59 46, 49 41 Z"
+                fill="#FFFFFF" stroke="#5A381E" stroke-width="2.2" stroke-linejoin="round" />
+              <!-- コイン本体 -->
+              <circle cx="32" cy="36" r="16"
+                fill="#FFD43B" stroke="#5A381E" stroke-width="2.8" />
+              <circle cx="32" cy="36" r="11"
+                fill="none" stroke="#B87606" stroke-width="1.6" />
+              <text x="32" y="40.5" text-anchor="middle" font-size="12" font-weight="900" fill="#5A381E">¥</text>
+            </svg>
+          `;
+        }
+
+        document.body.appendChild(el);
+        const totalMs = (parseFloat(delay) + parseFloat(duration)) * 1000 + 150;
+        setTimeout(() => {
+          el.remove();
+        }, totalMs);
+      }
+    }
+
+    // =========================================================
+    // 金額フォーマット＆ベル袋ランク判定
+    // =========================================================
+    function formatYen(amount) {
+      const sign = amount < 0 ? '-¥' : '¥';
+      return sign + Math.abs(Math.round(amount)).toLocaleString('ja-JP');
+    }
+
+    function getBagTier(balance, goalAmount) {
+      if (balance <= -5000) {
+        return {
+          key: 'broken_heavy',
+          badge: '🥀 ボロボロ赤字ベル袋',
+          status: '袋の底からほこりが…！気が向いたときに少しずつ戻そう！',
+          statusColor: '#C93B2B',
+          scale: 0.9
+        };
+      }
+      if (balance < 0) {
+        return {
+          key: 'broken_light',
+          badge: '🩹 ツギハギ赤字ベル袋',
+          status: 'お楽しみ発散中！また「がまん」できたら少しずつふくらませよう',
+          statusColor: '#D9532F',
+          scale: 0.94
+        };
+      }
+      const ratio = goalAmount > 0 ? balance / goalAmount : 0;
+      if (balance >= goalAmount || ratio >= 1) {
+        return {
+          key: 'legend',
+          badge: '👑 王冠ゴールドベル袋（目標達成！）',
+          status: 'すごいっ！旅の目標達成ライン到達！いつでも出発できるよ！',
+          statusColor: '#C47F00',
+          scale: 1.14
+        };
+      }
+      if (ratio >= 0.5 || balance >= 15000) {
+        return {
+          key: 'luxury',
+          badge: '✨ 豪華ゴールドベル袋',
+          status: 'パンパンにふくらんでキラキラ！旅の計画がぐっと現実に！',
+          statusColor: '#B87A00',
+          scale: 1.08
+        };
+      }
+      if (balance > 0) {
+        return {
+          key: 'normal',
+          badge: '💰 ぷっくりベル袋',
+          status: 'いい調子！少しずつベル袋がふくらみはじめたよ！',
+          statusColor: '#247A4C',
+          scale: Math.min(1.04, 0.98 + ratio * 0.06)
+        };
+      }
+      return {
+        key: 'empty',
+        badge: '🔔 これからふくらむベル袋',
+        status: '「がまん」を押してベル袋をふくらませよう！',
+        statusColor: '#6E8B74',
+        scale: 0.98
+      };
+    }
+
+    // =========================================================
+    // ベル袋SVG＆各種UI描画
+    // =========================================================
+    function renderBagOverflowCoins(isLegend) {
+      const container = document.getElementById('bagOverflowCoins');
+      if (!container) return;
+
+      if (!isLegend) {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+        return;
+      }
+
+      container.classList.remove('hidden');
+      if (container.childElementCount > 0) return;
+
+      // ベル袋とコインが乗る共通の地面の影（線の影なし）
+      container.innerHTML = `
+        <svg viewBox="0 0 280 58" class="w-full max-w-[270px] h-auto overflow-visible mx-auto">
+          <!-- 地面のやわらかな影 -->
+          <ellipse cx="140" cy="39" rx="112" ry="10.5" fill="#8FB396" opacity="0.38" />
+          <!-- ベル袋の真下の接地影 -->
+          <ellipse cx="140" cy="36" rx="54" ry="7.5" fill="#7CA384" opacity="0.48" />
+
+          <!-- 奥側・左に転がったコイン -->
+          <g transform="translate(52, 31) rotate(-18)">
+            <ellipse cx="0" cy="3.5" rx="12" ry="6.2" fill="#C98A12" stroke="#5A381E" stroke-width="2.5" />
+            <ellipse cx="0" cy="0.8" rx="12" ry="6.2" fill="#FFD43B" stroke="#5A381E" stroke-width="2.5" />
+          </g>
+
+          <!-- 左手前に転がり落ちたコイン -->
+          <g transform="translate(78, 38) rotate(12)">
+            <ellipse cx="0" cy="4" rx="13" ry="6.8" fill="#C98A12" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="0.8" rx="13" ry="6.8" fill="#FFE066" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="0.8" rx="8" ry="3.8" fill="none" stroke="#B87606" stroke-width="1.4" />
+          </g>
+
+          <!-- ベル袋の足元手前〜右側に転がり落ちるコイン群 -->
+          <g transform="translate(114, 41) rotate(-6)">
+            <ellipse cx="0" cy="4.2" rx="13.5" ry="6.8" fill="#C98A12" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="1" rx="13.5" ry="6.8" fill="#FFD43B" stroke="#5A381E" stroke-width="2.7" />
+          </g>
+          <g transform="translate(142, 42) rotate(9)">
+            <ellipse cx="0" cy="4.2" rx="13.5" ry="6.8" fill="#C98A12" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="1" rx="13.5" ry="6.8" fill="#FFF099" stroke="#5A381E" stroke-width="2.7" />
+          </g>
+          <g transform="translate(168, 39) rotate(16)">
+            <ellipse cx="0" cy="4" rx="13" ry="6.6" fill="#C98A12" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="0.8" rx="13" ry="6.6" fill="#FFD43B" stroke="#5A381E" stroke-width="2.7" />
+          </g>
+
+          <!-- 右側にコロッと転がったコイン -->
+          <g transform="translate(196, 35) rotate(-14)">
+            <ellipse cx="0" cy="3.8" rx="12.5" ry="6.4" fill="#C98A12" stroke="#5A381E" stroke-width="2.7" />
+            <ellipse cx="0" cy="0.8" rx="12.5" ry="6.4" fill="#FFE066" stroke="#5A381E" stroke-width="2.7" />
+          </g>
+          <g transform="translate(220, 30) rotate(22)">
+            <ellipse cx="0" cy="3.2" rx="11.5" ry="5.8" fill="#C98A12" stroke="#5A381E" stroke-width="2.4" />
+            <ellipse cx="0" cy="0.6" rx="11.5" ry="5.8" fill="#FFD43B" stroke="#5A381E" stroke-width="2.4" />
+          </g>
+        </svg>
+      `;
+    }
+
+    function renderBellBag() {
+      const tier = getBagTier(state.balance, state.goalAmount);
+      const bodyPath = document.getElementById('bellBodyPath');
+      const bodyGroup = document.getElementById('bellBodyGroup');
+      const frill = document.getElementById('bellFrill');
+      const ribbonColor = document.getElementById('bellRibbonColor');
+      const sparkles = document.getElementById('luxurySparkles');
+      const crown = document.getElementById('luxuryCrown');
+      const brokenPatches = document.getElementById('brokenPatches');
+      const debris = document.getElementById('fallingDebris');
+      const coinsGroup = document.getElementById('coinsInsideWindow');
+
+      const isNegative = state.balance < 0;
+      const isLuxury = tier.key === 'luxury' || tier.key === 'legend';
+      const isLegend = tier.key === 'legend';
+      const isHeavyBroken = tier.key === 'broken_heavy';
+
+      if (isNegative) {
+        bodyPath.setAttribute('fill', 'url(#bellBrokenGrad)');
+        frill.setAttribute('fill', '#B8AFA3');
+        ribbonColor.setAttribute('stroke', '#7D7267');
+      } else if (isLuxury) {
+        bodyPath.setAttribute('fill', 'url(#bellLuxuryGrad)');
+        frill.setAttribute('fill', '#FFE97D');
+        ribbonColor.setAttribute('stroke', '#FF5277');
+      } else {
+        bodyPath.setAttribute('fill', 'url(#bellNormalGrad)');
+        frill.setAttribute('fill', '#FFE680');
+        ribbonColor.setAttribute('stroke', '#FF6B5B');
+      }
+
+      bodyGroup.style.transform = `scale(${tier.scale})`;
+      sparkles.classList.toggle('hidden', !isLuxury);
+      crown.classList.toggle('hidden', !isLegend);
+      brokenPatches.classList.toggle('hidden', !isNegative);
+      debris.classList.toggle('hidden', !isHeavyBroken);
+      renderBagOverflowCoins(isLegend);
+
+      coinsGroup.innerHTML = '';
+      if (state.balance > 0) {
+        // 達成率（0.0 〜 1.0+）に応じて下からぎっしり積み上がるよう配置
+        const ratio = Math.max(0, Math.min(1, state.balance / Math.max(state.goalAmount, 1)));
+        const isFull = ratio >= 1;
+        const fillLevel = isFull ? 1 : Math.max(0.15, ratio);
+
+        // 下層〜上層へ順番に敷き詰めるコイン座標（円形ウィンドウ r=35, cy=144 の内側）
+        const coinSlots = [
+          { cx: 96, cy: 173, rx: 10, ry: 4.8, rot: -6 },
+          { cx: 112, cy: 175, rx: 10.5, ry: 5, rot: 2 },
+          { cx: 128, cy: 175, rx: 10.5, ry: 5, rot: -3 },
+          { cx: 144, cy: 173, rx: 10, ry: 4.8, rot: 7 },
+          { cx: 91, cy: 165, rx: 9.5, ry: 4.5, rot: -12 },
+          { cx: 105, cy: 166, rx: 10, ry: 4.8, rot: 5 },
+          { cx: 120, cy: 167, rx: 10.5, ry: 4.8, rot: -2 },
+          { cx: 135, cy: 166, rx: 10, ry: 4.8, rot: -6 },
+          { cx: 149, cy: 164, rx: 9.5, ry: 4.5, rot: 11 },
+          { cx: 94, cy: 156, rx: 9.5, ry: 4.5, rot: 8 },
+          { cx: 109, cy: 157, rx: 10, ry: 4.6, rot: -4 },
+          { cx: 124, cy: 157, rx: 10, ry: 4.6, rot: 4 },
+          { cx: 139, cy: 156, rx: 9.8, ry: 4.5, rot: -7 },
+          { cx: 151, cy: 154, rx: 9, ry: 4.2, rot: 12 },
+          { cx: 95, cy: 146, rx: 9.2, ry: 4.2, rot: -9 },
+          { cx: 110, cy: 147, rx: 9.8, ry: 4.4, rot: 3 },
+          { cx: 125, cy: 147, rx: 9.8, ry: 4.4, rot: -5 },
+          { cx: 140, cy: 146, rx: 9.5, ry: 4.2, rot: 8 },
+          { cx: 100, cy: 137, rx: 9, ry: 4.1, rot: 6 },
+          { cx: 115, cy: 137, rx: 9.5, ry: 4.2, rot: -4 },
+          { cx: 130, cy: 137, rx: 9.5, ry: 4.2, rot: 5 },
+          { cx: 145, cy: 137, rx: 9, ry: 4.1, rot: -8 },
+          { cx: 105, cy: 127, rx: 8.8, ry: 4, rot: -7 },
+          { cx: 120, cy: 127, rx: 9.2, ry: 4.1, rot: 2 },
+          { cx: 135, cy: 127, rx: 8.8, ry: 4, rot: 7 },
+          { cx: 112, cy: 118, rx: 8.5, ry: 3.8, rot: 5 },
+          { cx: 128, cy: 118, rx: 8.5, ry: 3.8, rot: -5 }
+        ];
+
+        // 下から順にぎっしり増やす宝石スロット（100%時はすき間を埋めるように配置）
+        const gemSlots = [
+          { cx: 103, cy: 169, fill: 'url(#rubyGemGrad)', rot: -14, scale: 0.92 },
+          { cx: 137, cy: 168, fill: 'url(#sapphireGemGrad)', rot: 14, scale: 0.92 },
+          { cx: 120, cy: 161, fill: 'url(#emeraldGemGrad)', rot: 0, scale: 0.96 },
+          { cx: 120, cy: 142, fill: 'url(#rubyGemGrad)', rot: -6, scale: 0.9 },
+          { cx: 102, cy: 152, fill: 'url(#sapphireGemGrad)', rot: -12, scale: 0.88 },
+          { cx: 138, cy: 151, fill: 'url(#emeraldGemGrad)', rot: 11, scale: 0.88 },
+          { cx: 112, cy: 132, fill: 'url(#rubyGemGrad)', rot: 8, scale: 0.86 },
+          { cx: 128, cy: 132, fill: 'url(#sapphireGemGrad)', rot: -9, scale: 0.86 }
+        ];
+
+        const coinCount = isFull
+          ? coinSlots.length
+          : Math.min(coinSlots.length, Math.max(2, Math.ceil(fillLevel * coinSlots.length)));
+        for (let i = 0; i < coinCount; i++) {
+          const slot = coinSlots[i];
+          const coin = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+          coin.setAttribute('cx', slot.cx);
+          coin.setAttribute('cy', slot.cy);
+          coin.setAttribute('rx', String(slot.rx));
+          coin.setAttribute('ry', String(slot.ry));
+          coin.setAttribute('transform', `rotate(${slot.rot} ${slot.cx} ${slot.cy})`);
+          coin.setAttribute('fill', 'url(#goldCoinGrad)');
+          coin.setAttribute('stroke', '#5A381E');
+          coin.setAttribute('stroke-width', '2');
+          coinsGroup.appendChild(coin);
+        }
+
+        const gemCount = isFull
+          ? gemSlots.length
+          : Math.min(gemSlots.length, Math.max(0, Math.round(fillLevel * 4)));
+        for (let g = 0; g < gemCount; g++) {
+          const spec = gemSlots[g];
+          const gemGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          gemGroup.setAttribute('transform', `translate(${spec.cx}, ${spec.cy}) rotate(${spec.rot}) scale(${spec.scale})`);
+
+          const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+          poly.setAttribute('points', '0,-8.5 7.5,-2.5 4.8,7.5 -4.8,7.5 -7.5,-2.5');
+          poly.setAttribute('fill', spec.fill);
+          poly.setAttribute('stroke', '#5A381E');
+          poly.setAttribute('stroke-width', '1.8');
+          poly.setAttribute('stroke-linejoin', 'round');
+
+          const shine = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+          shine.setAttribute('points', '-2,-5.5 2.5,-5.5 0.5,-1 -3.5,-1.5');
+          shine.setAttribute('fill', '#FFFFFF');
+          shine.setAttribute('opacity', '0.75');
+
+          gemGroup.appendChild(poly);
+          gemGroup.appendChild(shine);
+          coinsGroup.appendChild(gemGroup);
+        }
+      }
+
+      document.getElementById('bagRankBadge').textContent = tier.badge;
+      const balanceEl = document.getElementById('balanceDisplay');
+      balanceEl.textContent = formatYen(state.balance);
+      balanceEl.style.color = isNegative ? '#C93B2B' : '#5A381E';
+
+      const statusEl = document.getElementById('bagStatusMessage');
+      statusEl.textContent = tier.status;
+      statusEl.style.color = tier.statusColor;
+    }
+
+    function triggerBagAnimation(type) {
+      const wrapper = document.getElementById('bellMotionWrapper');
+      wrapper.classList.remove('bell-idle', 'bell-animate-save', 'bell-animate-spend');
+      void wrapper.offsetWidth;
+      wrapper.classList.add(type === 'save' ? 'bell-animate-save' : 'bell-animate-spend');
+      setTimeout(() => {
+        wrapper.classList.remove('bell-animate-save', 'bell-animate-spend');
+        wrapper.classList.add('bell-idle');
+      }, 600);
+    }
+
+    function renderGoalAndHeader() {
+      document.getElementById('goalSummaryText').textContent =
+        `目標：${state.goalTitle}（${formatYen(state.goalAmount)}）`;
+      document.getElementById('goalTargetLabel').textContent = `目標 ${formatYen(state.goalAmount)}`;
+      document.getElementById('soundToggleBtn').textContent = state.soundEnabled ? '🔊' : '🔇';
+
+      const rawPct = state.goalAmount > 0 ? Math.round((state.balance / state.goalAmount) * 100) : 0;
+      const clampedPct = Math.max(0, Math.min(100, rawPct));
+      document.getElementById('goalPercentBadge').textContent = `達成率 ${Math.max(0, rawPct)}%`;
+      document.getElementById('goalProgressBar').style.width = `${clampedPct}%`;
+
+      const remaining = state.goalAmount - state.balance;
+      const captionEl = document.getElementById('goalProgressCaption');
+      if (state.balance < 0) {
+        captionEl.textContent = `赤字解消まで ${formatYen(Math.abs(state.balance))}（目標まで ${formatYen(remaining)}）`;
+      } else if (remaining <= 0) {
+        captionEl.textContent = `🎉 目標金額達成！ごほうび旅へGO！`;
+      } else {
+        captionEl.textContent = `あと ${formatYen(remaining)} で目標達成`;
+      }
+    }
+
+    function renderHistory() {
+      const listEl = document.getElementById('historyList');
+      const countEl = document.getElementById('historyCountLabel');
+      if (!listEl || !countEl) return;
+
+      const historyItems = Array.isArray(state.history) ? state.history : [];
+      countEl.textContent = `${historyItems.length}件`;
+
+      if (historyItems.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-6 text-xs font-bold text-[#8E735B]">
+            まだきろくがありません。<br />「がまん」や「つかう」を押してね！
+          </div>
+        `;
+        return;
+      }
+
+      // 蓋付きのオーソドックスなゴミ箱SVGアイコン
+      const lidTrashSvg = `
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18" />
+          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+          <path d="M6 6l1 14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-14" />
+          <line x1="10" y1="10" x2="10" y2="17" />
+          <line x1="14" y1="10" x2="14" y2="17" />
+        </svg>
+      `;
+
+      listEl.innerHTML = historyItems.slice(0, 30).map((item, idx) => {
+        if (!item || typeof item !== 'object') return '';
+        const isSave = item.type === 'save';
+        const safeAmount = Number.isFinite(Number(item.amount)) ? Math.abs(Math.round(Number(item.amount))) : 0;
+        const safeBalanceAfter = Number.isFinite(Number(item.balanceAfter)) ? Number(item.balanceAfter) : state.balance;
+        const signText = isSave ? `+${formatYen(safeAmount)}` : `-${formatYen(safeAmount)}`;
+        const amountColor = isSave ? 'text-[#247A4C]' : 'text-[#D96B27]';
+        const badgeBg = isSave ? 'bg-[#E9FBF1]' : 'bg-[#FFF3E0]';
+        const icon = isSave ? '✨' : '🎁';
+        const dateStr = formatShortDate(item.timestamp);
+        const memoText = item.memo ? escapeHtml(String(item.memo)) : (isSave ? 'がまん貯金' : 'ごほうび発散');
+        const safeId = escapeHtml(String(item.id || `idx_${idx}`));
+
+        return `
+          <div class="flex items-center justify-between gap-2.5 p-2.5 rounded-2xl bg-[#FFFDF8] border-2 border-[#E6D9C5]">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="w-9 h-9 rounded-xl ${badgeBg} border border-[#5A381E]/30 flex items-center justify-center text-base shrink-0">
+                ${icon}
+              </div>
+              <div class="min-w-0">
+                <div class="text-xs font-black text-[#5A381E] truncate">${memoText}</div>
+                <div class="text-[10px] font-bold text-[#8E735B]">${dateStr}・残高 ${formatYen(safeBalanceAfter)}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-sm font-black ${amountColor}">${signText}</span>
+              <button type="button" onclick="deleteHistoryItem('${safeId}')" aria-label="削除"
+                class="w-7 h-7 rounded-lg text-[#8A6A4F] hover:bg-[#F5EDE0] hover:text-[#5A381E] flex items-center justify-center cursor-pointer">
+                ${lidTrashSvg}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAll() {
+      try {
+        renderGoalAndHeader();
+      } catch (e) {
+        console.warn('目標・ヘッダー描画エラー:', e);
+      }
+      try {
+        renderBellBag();
+      } catch (e) {
+        console.warn('ベル袋描画エラー:', e);
+      }
+      try {
+        renderHistory();
+      } catch (e) {
+        console.warn('記録描画エラー:', e);
+      }
+      try {
+        renderGodCornerMessage();
+      } catch (e) {
+        console.warn('知恵袋・一言コーナー描画エラー:', e);
+      }
+    }
+
+    function quickSave(amount, memo) {
+      recordEntry('save', amount, memo, true);
+    }
+
+    function recordEntry(type, amount, memo = '', showOverlay = true) {
+      try {
+        const cleanAmount = Math.abs(Math.round(Number(amount)));
+        if (!Number.isFinite(cleanAmount) || cleanAmount <= 0) return;
+
+        const cleanType = type === 'spend' ? 'spend' : 'save';
+        const prevBalance = Number.isFinite(Number(state.balance)) ? Number(state.balance) : 0;
+        const nextBalance = cleanType === 'save' ? prevBalance + cleanAmount : prevBalance - cleanAmount;
+        const cleanMemo = typeof memo === 'string' ? memo.trim().slice(0, 40) : '';
+
+        if (!Array.isArray(state.history)) {
+          state.history = [];
+        }
+
+        const entry = {
+          id: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+          type: cleanType,
+          amount: cleanAmount,
+          memo: cleanMemo,
+          balanceAfter: nextBalance,
+          timestamp: Date.now()
+        };
+
+        state.balance = nextBalance;
+        state.history.unshift(entry);
+
+        saveState();
+        triggerBagAnimation(cleanType);
+
+        if (cleanType === 'save') {
+          playSaveSound();
+          spawnFallingMoney(cleanAmount);
+        } else {
+          playSpendSound(nextBalance < 0);
+          spawnAscendingMoney(cleanAmount);
+        }
+
+        if (showOverlay) {
+          showBellGod(cleanType, cleanAmount, prevBalance, nextBalance);
+        }
+      } catch (err) {
+        console.warn('記録の追加に失敗しました:', err);
+      }
+    }
+
+    function deleteHistoryItem(id) {
+      const target = state.history.find((h) => h.id === id);
+      if (!target) return;
+      if (target.type === 'save') {
+        state.balance -= target.amount;
+      } else {
+        state.balance += target.amount;
+      }
+      state.history = state.history.filter((h) => h.id !== id);
+      saveState();
+    }
+
+    function showBellGod(type, amount, prevBalance, nextBalance) {
+      const overlay = document.getElementById('godOverlay');
+      const badge = document.getElementById('godTitleBadge');
+      const deltaEl = document.getElementById('godDeltaText');
+      const msgEl = document.getElementById('godMessageText');
+      const halo = document.getElementById('godHalo');
+      const browL = document.getElementById('godBrowL');
+      const browR = document.getElementById('godBrowR');
+      const mouth = document.getElementById('godMouth');
+      const angerMark = document.getElementById('godAngerMark');
+      const bellGodSvg = document.getElementById('bellGodSvg');
+      const okanGodSvg = document.getElementById('okanGodSvg');
+      const doctorGodSvg = document.getElementById('doctorGodSvg');
+      const isOkan = state.character === 'okan';
+      const isDoctor = state.character === 'doctor';
+
+      if (bellGodSvg && okanGodSvg && doctorGodSvg) {
+        bellGodSvg.classList.toggle('hidden', isOkan || isDoctor);
+        okanGodSvg.classList.toggle('hidden', !isOkan);
+        doctorGodSvg.classList.toggle('hidden', !isDoctor);
+      }
+
+      if (type === 'save') {
+        halo.classList.remove('hidden');
+        angerMark.classList.add('hidden');
+        browL.setAttribute('d', 'M62 78 Q72 72 80 78');
+        browR.setAttribute('d', 'M100 78 Q108 72 118 78');
+        mouth.setAttribute('d', 'M77 104 Q90 116 103 104 Z');
+        mouth.setAttribute('fill', '#FF6B5B');
+
+        badge.textContent = isOkan
+          ? '🍳 オカンのひとこと！'
+          : isDoctor
+            ? '👓 節約博士の分析！'
+            : '✨ 祝福のベル神さま降臨！';
+        badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-black border-2 border-[#5A381E] bg-[#FFF2B2] text-[#5A381E] mb-1.5';
+        deltaEl.textContent = `+${formatYen(amount)}`;
+        deltaEl.className = 'text-2xl font-black text-[#247A4C] mb-1.5';
+
+        if (isOkan) {
+          if (prevBalance < 0 && nextBalance >= 0) {
+            msgEl.textContent = 'おおっ、赤字チャラになったやん！あんたやればできる子やな、その調子でいこいこ！';
+          } else if (nextBalance >= state.goalAmount && prevBalance < state.goalAmount) {
+            msgEl.textContent = '出たっ、目標達成や！ようやったな、道中気ぃつけてええ旅してきや〜！';
+          } else if (amount >= 1000) {
+            const okanBigSaveLines = [
+              `いきなり${formatYen(amount)}もがまんしたん！？すごいやん、その勢いそのままいってぇな！`,
+              `おおきに〜！${formatYen(amount)}も浮いたんやったら、旅のええ宿にぐっと近づいたで！`,
+              `あんた、今日は気合入っとるやん！${formatYen(amount)}しっかり袋に入れときよし〜！`
+            ];
+            msgEl.textContent = okanBigSaveLines[Math.floor(Math.random() * okanBigSaveLines.length)];
+          } else {
+            const okanSaveLines = [
+              `ちりも積もれば山やで！${formatYen(amount)}しっかり貯まったやん、えらいえらい！`,
+              `ほら見ぃ、${formatYen(amount)}浮いたやん！こういう積み重ねが一番効くんよ〜！`,
+              `ナイスがまん！${formatYen(amount)}あれば、旅先でちょっとええもん食えるでぇ！`,
+              `ええ判断や！いらんもん買わんかったら${formatYen(amount)}残るんやから、儲けもんやな！`,
+              `その調子その調子！${formatYen(amount)}ずつでも確実に増えてっとるで、続けよし〜！`
+            ];
+            msgEl.textContent = okanSaveLines[Math.floor(Math.random() * okanSaveLines.length)];
+          }
+        } else if (isDoctor) {
+          if (prevBalance < 0 && nextBalance >= 0) {
+            msgEl.textContent = `……ほう、赤字を抜けましたか。まあ、やりますね。`;
+          } else if (nextBalance >= state.goalAmount && prevBalance < state.goalAmount) {
+            msgEl.textContent = `……目標達成ですね。ふうん、ちゃんとやり遂げましたか。大したものです。`;
+          } else {
+            const doctorSaveLines = [
+              `……${formatYen(amount)}。ふうん、なかなかやりますね。`,
+              `へえ、${formatYen(amount)}を。……悪くないですよ、その積み上げ。`,
+              `……また増えましたか。地味ですが、ちゃんと効いていますね。`,
+              `ふっ、${formatYen(amount)}ですか。……意外とやりますね、あなた。`,
+              `……まあ、いいでしょう。${formatYen(amount)}分、確実に前に進んでいますよ。`
+            ];
+            msgEl.textContent = doctorSaveLines[Math.floor(Math.random() * doctorSaveLines.length)];
+          }
+        } else {
+          if (prevBalance < 0 && nextBalance >= 0) {
+            msgEl.textContent = 'おおっ！ついに赤字を乗り越えてプラスに返り咲いたぞよ〜！ベル袋も大喜びじゃ！';
+          } else if (nextBalance >= state.goalAmount && prevBalance < state.goalAmount) {
+            msgEl.textContent = 'めでたい！めでたい！ついに旅の目標金額に到達じゃ〜！素敵な旅になるぞよ！';
+          } else if (amount >= 1000) {
+            msgEl.textContent = `なんと${formatYen(amount)}もの大がまんじゃ！お札が舞い降りるほどの活躍ぞよ〜！`;
+          } else {
+            msgEl.textContent = `みごとながまんじゃ！${formatYen(amount)}がベル袋に積み上がり、旅がまた近づいたぞよ〜！`;
+          }
+        }
+      } else {
+        halo.classList.remove('hidden');
+        angerMark.classList.add('hidden');
+        browL.setAttribute('d', 'M62 76 Q72 70 80 76');
+        browR.setAttribute('d', 'M100 76 Q108 70 118 76');
+        mouth.setAttribute('d', 'M76 103 Q90 117 104 103 Z');
+        mouth.setAttribute('fill', '#FF6B5B');
+
+        if (nextBalance < 0) {
+          badge.textContent = isOkan
+            ? '🍳 オカンより（発散OK！）'
+            : isDoctor
+              ? '👓 節約博士のリカバリー案'
+              : '🎉 思いっきり発散じゃ！';
+          badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-black border-2 border-[#5A381E] bg-[#FFE8CC] text-[#9E4700] mb-1.5';
+          deltaEl.textContent = `-${formatYen(amount)}（残高 ${formatYen(nextBalance)}）`;
+          deltaEl.className = 'text-xl font-black text-[#D96B27] mb-1.5';
+          const negativeMessages = isOkan ? [
+            'まあええやん、たまには息抜きせなやってられへんわ！また気が向いたときに少しずつ貯めよし〜！',
+            'ここまでよう頑張ってきたんやから、今日は好きなもん食べてスッキリしや！',
+            '無理してためこんでしんどくなるよりずっとええわ。あんたの笑顔が一番やで〜！',
+            '赤字？気にすな気にすな！人生メリハリが大事や、またええ波がきたときに貯めたらええねん！',
+            '今日は発散デーやな！うまいもん食べて気分スッキリさせて、また明日からぼちぼちいこ〜！'
+          ] : isDoctor ? [
+            '……まあ、そういう日もありますよ。これまでの努力まで消えるわけじゃありません。',
+            'ふうん、発散ですか。……悪くないですよ、よくやってきましたからね。',
+            '……べつに責めませんよ。また気が向いたときに、自分のペースで戻せばいい。',
+            '……たまには抜くのも必要でしょうね。これまでの積み上げは、ちゃんと残っていますよ。'
+          ] : [
+            'よくぞ我慢を発散したのう！気分スッキリが一番じゃ！また気が向いたときに少しずつ貯めればよいぞよ〜！',
+            'ここまでコツコツ耐えてきた頑張りは消えぬぞよ！今日は心を解き放って楽しむ日じゃ！',
+            'たまには羽を伸ばすのも立派な旅支度じゃ！お主の笑顔が一番の宝物ぞよ〜！'
+          ];
+          msgEl.textContent = negativeMessages[Math.floor(Math.random() * negativeMessages.length)];
+        } else {
+          badge.textContent = isOkan
+            ? '🍳 オカンも納得のごほうび！'
+            : isDoctor
+              ? '👓 節約博士の承認'
+              : '✨ 良きごほうびタイムじゃ！';
+          badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-black border-2 border-[#5A381E] bg-[#E9FBF1] text-[#247A4C] mb-1.5';
+          deltaEl.textContent = `-${formatYen(amount)} ごほうび！`;
+          deltaEl.className = 'text-xl font-black text-[#247A4C] mb-1.5';
+          const positiveMessages = isOkan ? [
+            `よう頑張ったな！${formatYen(amount)}のごほうび、おいしく楽しんでおいでや〜！`,
+            `コツコツ貯めたんやから、${formatYen(amount)}くらい気持ちよく使うてええんやで！`,
+            `メリハリつけて楽しむのも大事やで！${formatYen(amount)}でリフレッシュしてまた頑張ろな〜！`,
+            `あんたの努力のごほうびや！${formatYen(amount)}でしっかり気分転換してきや〜！`,
+            `おお、${formatYen(amount)}のごほうびやな！ケチケチせんと、今日は思いっきり味わいや〜！`,
+            `ちゃんと貯めてからの${formatYen(amount)}は格別やろ！存分に楽しんでおいで〜！`
+          ] : isDoctor ? [
+            `……${formatYen(amount)}のごほうびですか。まあ、それくらいは認めてやりますよ。`,
+            `ふうん、ちゃんと使いどころを心得ていますね。……なかなかやります。`,
+            `……悪くないですね、そのメリハリ。${formatYen(amount)}分、しっかり味わいなさい。`,
+            `ここまで積み上げたんですから、${formatYen(amount)}くらい使ってもバチは当たりませんよ。`,
+            `……へえ、もう使いますか。まあ、頑張ってきたのは事実ですからね。`
+          ] : [
+            `これまでの我慢の分、${formatYen(amount)}を気持ちよく発散じゃ！メリハリをつけて楽しむのも旅への力になるぞよ〜！`,
+            `お主の日々の頑張りがあってこそじゃ！${formatYen(amount)}の良きごほうび、存分に味わうがよいぞよ！`,
+            `よく貯めたのう！${formatYen(amount)}を使って心を満たすのも立派な前進じゃ。またマイペースに積み上げようぞよ〜！`,
+            `積み重ねた努力のごほうびじゃ！${formatYen(amount)}でリフレッシュして、次の旅へまた元気をチャージじゃ〜！`
+          ];
+          msgEl.textContent = positiveMessages[Math.floor(Math.random() * positiveMessages.length)];
+        }
+      }
+
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+
+      if (window.godAutoCloseTimer) {
+        clearTimeout(window.godAutoCloseTimer);
+      }
+      window.godAutoCloseTimer = setTimeout(() => {
+        closeGodOverlay();
+      }, 5000);
+    }
+
+    function closeGodOverlay() {
+      if (window.godAutoCloseTimer) {
+        clearTimeout(window.godAutoCloseTimer);
+        window.godAutoCloseTimer = null;
+      }
+      const overlay = document.getElementById('godOverlay');
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+    }
+
+    // =========================================================
+    // モーダル操作（＋がまん／－つかう、設定、ホーム画面追加）
+    // =========================================================
+    const SITUATION_OPTIONS = {
+      save: ['お菓子', 'ドリンク', 'カフェ', '外食'],
+      spend: ['ごほうび', 'ごちそう', '旅行', '趣味']
+    };
+
+    function renderSituationChoices(type) {
+      const container = document.getElementById('situationChoices');
+      const options = SITUATION_OPTIONS[type] || SITUATION_OPTIONS.save;
+
+      container.innerHTML = options.map((label) => {
+        return `
+          <button type="button"
+            onclick="selectSituationItem('${escapeHtml(label)}')"
+            class="pop-chip p-2.5 bg-[#FFFDF8] hover:bg-[#FFE680] text-center transition cursor-pointer">
+            <span class="text-xs font-black text-[#5A381E]">${escapeHtml(label)}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function updateSelectedAmountDisplay() {
+      const displayEl = document.getElementById('selectedAmountDisplay');
+      if (displayEl) {
+        displayEl.textContent = formatYen(selectedActionAmount);
+      }
+    }
+
+    function addPresetAmount(amount) {
+      const addVal = Math.abs(Math.round(Number(amount)));
+      if (!addVal) return;
+      selectedActionAmount = Math.min(9999999, selectedActionAmount + addVal);
+      updateSelectedAmountDisplay();
+    }
+
+    function resetPresetAmount() {
+      selectedActionAmount = 0;
+      updateSelectedAmountDisplay();
+    }
+
+    function selectSituationItem(label) {
+      const memoInput = document.getElementById('actionMemoInput');
+      if (!memoInput) return;
+      memoInput.value = label;
+    }
+
+    function submitActionModal() {
+      if (!selectedActionAmount || selectedActionAmount <= 0) {
+        const displayEl = document.getElementById('selectedAmountDisplay');
+        if (displayEl) {
+          displayEl.textContent = '¥0（金額を選んでね）';
+        }
+        return;
+      }
+      const memoInput = document.getElementById('actionMemoInput');
+      const memo = memoInput ? memoInput.value.trim() : '';
+      const amountToRecord = selectedActionAmount;
+      const typeToRecord = currentActionType;
+      closeActionModal();
+      recordEntry(typeToRecord, amountToRecord, memo, true);
+    }
+
+    function openActionModal(type) {
+      currentActionType = type;
+      selectedActionAmount = 0;
+      const modal = document.getElementById('actionModal');
+      const title = document.getElementById('actionModalTitle');
+      const submitBtn = document.getElementById('actionSubmitBtn');
+      const memoInput = document.getElementById('actionMemoInput');
+
+      updateSelectedAmountDisplay();
+      memoInput.value = '';
+      renderSituationChoices(type);
+
+      if (type === 'save') {
+        title.textContent = '＋ がまんを記録（貯める）';
+        submitBtn.textContent = 'ベル袋に入れる！';
+        submitBtn.className = 'w-full py-3.5 pop-btn-save text-base font-black cursor-pointer';
+      } else {
+        title.textContent = '－ つかうを記録（お楽しみ）';
+        submitBtn.textContent = '気持ちよく発散する！';
+        submitBtn.className = 'w-full py-3.5 pop-btn-spend text-base font-black cursor-pointer';
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => {
+        const displayEl = document.getElementById('selectedAmountDisplay');
+        if (displayEl) displayEl.focus();
+      }, 60);
+    }
+
+    function closeActionModal() {
+      const modal = document.getElementById('actionModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function updateCharacterChoiceButtons() {
+      const bellBtn = document.getElementById('charChoiceBellGod');
+      const okanBtn = document.getElementById('charChoiceOkan');
+      const doctorBtn = document.getElementById('charChoiceDoctor');
+      if (!bellBtn || !okanBtn || !doctorBtn) return;
+
+      bellBtn.className = `pop-chip py-2.5 px-1.5 ${selectedSettingsCharacter === 'bell_god' ? 'bg-[#FFE97D]' : 'bg-[#FFFDF8]'} text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer`;
+      okanBtn.className = `pop-chip py-2.5 px-1.5 ${selectedSettingsCharacter === 'okan' ? 'bg-[#FFE97D]' : 'bg-[#FFFDF8]'} text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer`;
+      doctorBtn.className = `pop-chip py-2.5 px-1.5 ${selectedSettingsCharacter === 'doctor' ? 'bg-[#FFE97D]' : 'bg-[#FFFDF8]'} text-[11px] font-black text-[#5A381E] text-center whitespace-nowrap cursor-pointer`;
+    }
+
+    function selectCharacterChoice(charKey) {
+      const nextChar = normalizeCharacter(charKey);
+      state.character = nextChar;
+      selectedSettingsCharacter = nextChar;
+      godCornerIndex = 0;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.warn('キャラクター保存に失敗しました:', e);
+      }
+      updateCharacterChoiceButtons();
+      renderGodCornerMessage();
+      renderGoalAndHeader();
+      renderBellBag();
+      renderHistory();
+    }
+
+    function openSettingsModal() {
+      document.getElementById('goalTitleInput').value = state.goalTitle;
+      document.getElementById('goalAmountInput').value = state.goalAmount;
+      selectedSettingsCharacter = state.character || 'bell_god';
+      updateCharacterChoiceButtons();
+      document.getElementById('resetConfirmBox').classList.add('hidden');
+      const modal = document.getElementById('settingsModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSettingsModal() {
+      const modal = document.getElementById('settingsModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function saveSettingsModal() {
+      try {
+        const titleInput = document.getElementById('goalTitleInput');
+        const amountInput = document.getElementById('goalAmountInput');
+        const rawTitle = titleInput ? titleInput.value.trim() : '';
+        const rawAmount = amountInput ? Number(amountInput.value) : DEFAULT_STATE.goalAmount;
+
+        state.goalTitle = rawTitle || DEFAULT_STATE.goalTitle;
+        state.goalAmount = Number.isFinite(rawAmount) && rawAmount >= 100
+          ? Math.round(rawAmount)
+          : DEFAULT_STATE.goalAmount;
+        state.character = normalizeCharacter(selectedSettingsCharacter || state.character);
+
+        saveState();
+        closeSettingsModal();
+      } catch (err) {
+        console.warn('設定の保存に失敗しました:', err);
+        closeSettingsModal();
+      }
+    }
+
+    function promptResetAllData() {
+      document.getElementById('resetConfirmBox').classList.remove('hidden');
+    }
+
+    function cancelResetConfirm() {
+      document.getElementById('resetConfirmBox').classList.add('hidden');
+    }
+
+    function executeResetAllData() {
+      state = {
+        ...DEFAULT_STATE,
+        goalTitle: state.goalTitle,
+        goalAmount: state.goalAmount,
+        soundEnabled: state.soundEnabled,
+        history: []
+      };
+      saveState();
+      closeSettingsModal();
+    }
+
+    function openInstallModal() {
+      const modal = document.getElementById('installModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeInstallModal() {
+      const modal = document.getElementById('installModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // =========================================================
+    // ユーティリティ＆初期化
+    // =========================================================
+    function formatShortDate(ts) {
+      const d = new Date(ts);
+      if (Number.isNaN(d.getTime())) {
+        const now = new Date();
+        return `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      }
+      const m = d.getMonth() + 1;
+      const day = d.getDate();
+      const hh = String(d.getHours()).padStart(2, '0');
+      const mm = String(d.getMinutes()).padStart(2, '0');
+      return `${m}/${day} ${hh}:${mm}`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // =========================================================
+    // ワンタップ貯金下のベル神さま（豆知識・お告げ・応援）
+    // =========================================================
+    const GOD_CORNER_MESSAGES = [
+      { tag: '💡 節約豆知識', text: 'マイボトルを1日1回持ち歩くだけで、月3,000円以上のドリンク代が旅資金に変わるぞよ〜！' },
+      { tag: '🔮 ベル神さまのお告げ', text: '今日の吉兆は「小さな＋¥100」にあり！迷ったときのひとがまんが旅の切符を呼ぶぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: '完璧じゃなくてよいのじゃ！1回でも「がまん」できた日があれば、ベル袋はちゃんと育つぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '買い物前に「本当に今日いるもの？」と3秒ひと呼吸おくと、ムダ買いがぐっと減るぞよ！' },
+      { tag: '🔮 ベル神さまのお告げ', text: 'ごほうびの「つかう」も旅への活力じゃ！ためこみすぎず、気持ちよく発散する日も大切ぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: 'お主のペースが一番じゃ！コツコツ積み上げた円は、旅先での最高のごちそうになるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: 'コンビニに行く前に冷蔵庫やカバンの中をちらっと見ると、重複買いがふせげるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '空腹のときの買い物は誘惑が増えるものじゃ。食後や一息ついたあとだと冷静になれるぞよ〜。' },
+      { tag: '📣 ベル神さまの応援', text: '今日は少しだけ見送ったその気持ち、ベル神さまはしっかり見届けておるぞよ！' },
+      { tag: '💡 節約豆知識', text: 'おやつを大袋のまま開けず小皿や小袋に分けると、食べすぎも出費も抑えられるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '「今だけ限定」の文字に出会ったら、いったん立ち止まるが吉じゃ。本当に欲しいか問うてみよ。' },
+      { tag: '📣 ベル神さまの応援', text: '昨日より今日、1円でも前へ進んだなら大成功じゃ！焦らず歩みを重ねるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '使っていないサブスクや会費を1つ見直すだけで、毎月ずっと旅資金が湧いてくるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '雨の日はおうち時間が開運の鍵じゃ！家にあるもので工夫すると福が寄ってくるぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: 'お主が笑って旅に出る日を、ベル袋もわくわくしながら待っておるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: 'ポイントやクーポンは「お得だから買う」ではなく「買う予定のものに使う」が鉄則ぞよ！' },
+      { tag: '🔮 ベル神さまのお告げ', text: '夕暮れ時は気分が揺れやすいものじゃ。温かいお茶を飲んで心を整えるとよいぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: '小さな「＋¥10」でも、チリが積もれば温泉卵や特急券に化けるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '歩く距離を少し増やすと、交通費の節約と気分転換が同時にかなうぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '旅先の景色を思い描くだけで、今日の「がまん」に優しい追い風が吹くぞよ〜。' },
+      { tag: '📣 ベル神さまの応援', text: 'うまくいかない日があっても大丈夫じゃ。また気が向いたときにベル袋を鳴らすがよい！' },
+      { tag: '💡 節約豆知識', text: 'セール品でも「定価でも買うか？」と自問すると、本当に必要なものだけが残るぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: 'お財布の中をすっきり整えると、お金の流れも気持ちも軽やかになるぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: 'コツコツ続けたその跡は、何より確かなお守りじゃ！誇りに思うがよいぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '自炊や作り置きを週に数回増やすだけで、外食費が無理なく旅資金へ変わるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '今日は「見送った分」を数える日じゃ。使わなかったお金も立派な成果ぞよ！' },
+      { tag: '📣 ベル神さまの応援', text: 'どんな小さな一歩も尊いものじゃ。お主の頑張りに拍手を送るぞよ〜！' },
+      { tag: '💡 節約豆知識', text: 'ネット通販はカートに入れたまま一晩寝かせると、熱が冷めて本当にいるか見えてくるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '風に乗って金の鈴が鳴っておるぞよ！良い流れが来ている証拠じゃ。' },
+      { tag: '📣 ベル神さまの応援', text: 'がまんした分だけ、旅先での「これ食べていいよね！」が何倍もおいしくなるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '季節の変わり目は衣替えで手持ちを把握すると、似た服の買い足しを防げるぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '焦りは禁物じゃ。湯船につかるように、ゆっくりペースで貯めていくがよいぞよ。' },
+      { tag: '📣 ベル神さまの応援', text: '今日も一日おつかれさまじゃ！お主の努力、しっかりベル袋に刻んでおるぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '飲み物を買う前に「水道水や家のお茶で十分かも？」と考えると、毎月しっかり残るぞよ。' },
+      { tag: '🔮 ベル神さまのお告げ', text: '数字が少しでも動いた日は吉日じゃ！ベル袋のふくらみを確かめてみよ。' },
+      { tag: '📣 ベル神さまの応援', text: '無理をしすぎないのが長続きの秘訣じゃ。楽しく旅支度を続けようぞよ〜！' },
+      { tag: '💡 節約豆知識', text: '手元にある食材や日用品を「使い切る」工夫は、一番確実な節約術ぞよ！' },
+      { tag: '🔮 ベル神さまのお告げ', text: '次の旅ではどんな風を感じたいかのう？想像が貯金の火を灯すぞよ〜。' },
+      { tag: '📣 ベル神さまの応援', text: 'ここまで積み上げたお主なら、きっと素敵な旅をかなえられるぞよ！' },
+      { tag: '💡 節約豆知識', text: '「今日はノーマネーデーにする！」と決めるだけでも、意識がガラッと変わるぞよ。' }
+    ];
+
+    const OKAN_CORNER_MESSAGES = [
+      { tag: '🍳 オカンの知恵袋', text: '水筒ひとつ持ち歩くだけで、ジュース代が浮いて旅のおみやげ代になるんやで〜！' },
+      { tag: '💬 オカンのひとこと', text: '今日はちょっとの「＋¥100」がええ流れやで！迷ったらひと呼吸おいてみよし。' },
+      { tag: '📣 オカンの応援', text: '最初から完璧なんて無理やで！1回でもがまんできたら、それだけでえらいんやからな〜！' },
+      { tag: '🍳 オカンの知恵袋', text: 'カゴに入れる前に「ほんまに今いらん？」って自分に聞いてみよし。ムダが減るで！' },
+      { tag: '💬 オカンのひとこと', text: 'たまには「つかう」で気分転換せなな！ためこみすぎて疲れたら本末転倒やで〜。' },
+      { tag: '📣 オカンの応援', text: 'あんたのペースでええんやで！少しずつ貯めたお金は、旅先で一番おいしいごほうびになるわ〜！' },
+      { tag: '🍳 オカンの知恵袋', text: '冷蔵庫の奥に眠ってるもん、先に使い切ったら立派な節約になるんやで！' },
+      { tag: '💬 オカンのひとこと', text: '「安いから」で買うのが一番もったいないんよ。使うんかちゃんと考えてみよし〜！' },
+      { tag: '📣 オカンの応援', text: 'ええやんええやん！その調子でコツコツいったら、あっという間に旅に行けるで！' },
+      { tag: '🍳 オカンの知恵袋', text: 'お茶やコーヒーは家で淹れて持っていくと、出先で慌てへんしお金も残るわ。' },
+      { tag: '💬 オカンのひとこと', text: 'お腹すいてる時にスーパー行ったら、余計なもんまでカゴに入るんやから気ぃつけや〜！' },
+      { tag: '📣 オカンの応援', text: 'あんたが頑張ってるの、オカンちゃんと見てるで。しんどい時は無理せんでええんやで！' },
+      { tag: '🍳 オカンの知恵袋', text: 'お菓子の食べすぎ防止には、お皿に出してから食べるのが一番効くんよ。' },
+      { tag: '💬 オカンのひとこと', text: '「限定品」に弱い気持ちもわかるけど、ほんまに家に置く場所あるんか〜？' },
+      { tag: '📣 オカンの応援', text: '100円でも200円でも、積み上がったら大きいんやで。ようやっとるやん！' },
+      { tag: '🍳 オカンの知恵袋', text: '使ってへんサブスク、放置してへん？月数百円でも積もればバカにならへんで。' },
+      { tag: '💬 オカンのひとこと', text: '今日は外食やめておうちごはんにしよか、って思えただけで花丸やで〜！' },
+      { tag: '📣 オカンの応援', text: '旅先でおいしいもん食べるためやと思ったら、ちょっとのがまんも楽しいやろ？' },
+      { tag: '🍳 オカンの知恵袋', text: '一駅歩ける距離なら歩いてみよし。運動にもなるし電車代も浮くで！' },
+      { tag: '💬 オカンのひとこと', text: '気分が沈んでる時の買い物より、寝てスッキリしてから考えた方がええ判断できるわ。' },
+      { tag: '📣 オカンの応援', text: '失敗したってええねん。また明日からやり直したらええだけやから気楽にいこ〜！' },
+      { tag: '🍳 オカンの知恵袋', text: '特売日でも「いらんもんまで買う」は本末転倒。買うもん決めてから行きよし。' },
+      { tag: '💬 オカンのひとこと', text: 'お財布の中がレシートだらけになってへん？たまには整理してスッキリさせよし！' },
+      { tag: '📣 オカンの応援', text: 'あんたの努力はちゃんと形になっとるで。自信持っていきや〜！' },
+      { tag: '🍳 オカンの知恵袋', text: '残り物アレンジも立派なごちそうやで。工夫したら食費もぐっと抑えられるわ。' },
+      { tag: '💬 オカンのひとこと', text: 'がまんばっかりでイライラするくらいなら、上手に息抜きしながらいきよし！' },
+      { tag: '📣 オカンの応援', text: '今日もよう頑張ったな！えらいえらい、ゆっくり休んでや〜！' },
+      { tag: '🍳 オカンの知恵袋', text: '通販はカゴに入れたまま1日置くと、「あ、いらんわ」って気づくこと多いで！' },
+      { tag: '💬 オカンのひとこと', text: '「ちょっとだけ」が重なるんやから、最初のひと声で踏みとどまれたら勝ちやで！' },
+      { tag: '📣 オカンの応援', text: '旅の計画立てるだけでも楽しいやん。目標があると頑張りやすいよな〜！' },
+      { tag: '🍳 オカンの知恵袋', text: 'ラップやティッシュも、丁寧に使うと減り方が全然ちゃうんやで。' },
+      { tag: '💬 オカンのひとこと', text: '人付き合いも大事やけど、自分の財布と相談するのも忘れんといてや〜。' },
+      { tag: '📣 オカンの応援', text: '一歩ずつでも前に進んどるやん。その調子その調子！' },
+      { tag: '🍳 オカンの知恵袋', text: 'コンビニ寄る回数を週に1回減らすだけでも、かなり残るんやで。' },
+      { tag: '💬 オカンのひとこと', text: '今日は何もしへん日を作るのもええわ。心も体も労わったってな〜！' },
+      { tag: '📣 オカンの応援', text: 'あんたなら絶対ええ旅できるで。オカンが応援しとるからな！' },
+      { tag: '🍳 オカンの知恵袋', text: 'ストック買いしすぎると賞味期限切れになるで。使い切ってから買いよし。' },
+      { tag: '💬 オカンのひとこと', text: '「まあええか」で済ませられるゆとりも、長く続けるコツやで〜！' },
+      { tag: '📣 オカンの応援', text: 'ここまで続けとるの、ほんまにすごいことやで。よう頑張っとるわ！' },
+      { tag: '🍳 オカンの知恵袋', text: '今日はお金を使わん日にするぞ、って決めるだけでスイッチ入るんよ。' }
+    ];
+
+    const DOCTOR_CORNER_MESSAGES = [
+      { tag: '👓 節約博士の視点', text: '500円を月20回積み上げれば月1万円。地味に見えて、なかなか馬鹿にできない数字です。' },
+      { tag: '📈 節約博士のメモ', text: '迷ったときに記録する、それだけで十分やっていますね。流れは悪くありません。' },
+      { tag: '🔬 節約博士の考察', text: '我慢そのものより、旅へ向かう感覚を保てていることが一番の成果ですよ。' },
+      { tag: '👓 節約博士の視点', text: 'レジ前で一呼吸おけるようになったなら、それは立派な前進ですね。' },
+      { tag: '📈 節約博士のメモ', text: 'たまの「つかう」も悪くありません。続けられる形を作るのが、結局いちばん強いのです。' },
+      { tag: '🔬 節約博士の考察', text: '小さなプラスを淡々と重ねられるのは、なかなかできることではありませんよ。' },
+      { tag: '👓 節約博士の視点', text: '大型節約より、毎日の習慣のズレを直す方が再現性は高いのです。……まあ、知っていましたか。' },
+      { tag: '📈 節約博士のメモ', text: '……ふうん、記録が続いていますね。案外、向いているのかもしれません。' },
+      { tag: '🔬 節約博士の考察', text: '衝動買いを1回見送るだけで、実質的なリターンはかなりのものになりますよ。' },
+      { tag: '👓 節約博士の視点', text: '「お得」という言葉に反応する前に、必要なものかだけ切り分ける。基本ですが効きます。' },
+      { tag: '📈 節約博士のメモ', text: '……悪くないペースです。急ぎすぎず、崩れない範囲で積み上げるのが定石ですね。' },
+      { tag: '🔬 節約博士の考察', text: '固定費の小さな見直しは、一度やればあとは自動で効き続ける優秀な施策です。' },
+      { tag: '👓 節約博士の視点', text: '空腹時の意思決定はブレやすい。……そういうデータがあるわけではありませんが、経験則です。' },
+      { tag: '📈 節約博士のメモ', text: 'へえ、今日もちゃんと向き合っていますね。……なかなかやります。' },
+      { tag: '🔬 節約博士の考察', text: '貯める目的が「旅」と明確なのは強いですね。動機があると継続率が上がります。' },
+      { tag: '👓 節約博士の視点', text: '少額だからと油断しないこと。少額の積み重ねが、最終的に大きな差を生みます。' },
+      { tag: '📈 節約博士のメモ', text: '……まあ、停滞する日があってもいいでしょう。戻ってこられるなら十分です。' },
+      { tag: '🔬 節約博士の考察', text: '使うときは使う、と決めている人は、結果的に長く続けられる傾向がありますね。' },
+      { tag: '👓 節約博士の視点', text: 'カートに入れて一晩置く。シンプルですが、無駄な出費を削るには合理的です。' },
+      { tag: '📈 節約博士のメモ', text: '……ふっ、また少し増えましたか。静かですが、着実な伸びですね。' },
+      { tag: '🔬 節約博士の考察', text: '完璧主義は続きにくいものです。6〜7割できれば、ひとまずは合格点ですよ。' },
+      { tag: '👓 節約博士の視点', text: '飲み物代ひとつでも、回数を数えると意外と大きな割合を占めています。' },
+      { tag: '📈 節約博士のメモ', text: '……べつに褒めちぎるほどではありませんが、よくやっているとは思いますよ。' },
+      { tag: '🔬 節約博士の考察', text: '手持ちのもので済ませる工夫は、コストゼロでできる最も堅実な選択です。' },
+      { tag: '👓 節約博士の視点', text: '割引率よりも、実際に減る金額を見る方が判断は狂いにくくなります。' },
+      { tag: '📈 節約博士のメモ', text: '……ほう、その調子を維持できますか。興味深いですね。' },
+      { tag: '🔬 節約博士の考察', text: '気分転換のコストをゼロに近づけると、自然と旅の資金が残っていきます。' },
+      { tag: '👓 節約博士の視点', text: '「今すぐ必要か」を問うだけで、大半の迷いは整理できるものです。' },
+      { tag: '📈 節約博士のメモ', text: '……まあ、悪くありません。あなたのやり方で形になっているなら、それが正解です。' },
+      { tag: '🔬 節約博士の考察', text: '小さな成功体験を可視化すると、次の行動に移しやすくなるのです。' },
+      { tag: '👓 節約博士の視点', text: '使っていない契約を整理するのは、後回しにしがちですが効果は確かです。' },
+      { tag: '📈 節約博士のメモ', text: '……ふうん、意外と粘り強いですね。見直しましたよ。' },
+      { tag: '🔬 節約博士の考察', text: '旅の楽しみを具体的に思い描くことは、モチベーションの維持に役立ちます。' },
+      { tag: '👓 節約博士の視点', text: '「ついで買い」を減らすだけでも、月の収支は quite 変わります。……まあ、かなり変わります。' },
+      { tag: '📈 節約博士のメモ', text: '……今日は少し控えめでも、止まらなければそれでいいのです。' },
+      { tag: '🔬 節約博士の考察', text: '無理のないルール設計こそが、長期戦を勝ち抜くカギになりますよ。' },
+      { tag: '👓 節約博士の視点', text: '在庫を把握してから買い物に行く。地味ですが、最も確実な防衛策です。' },
+      { tag: '📈 節約博士のメモ', text: '……なかなかやりますね。派手さはありませんが、筋は通っています。' },
+      { tag: '🔬 節約博士の考察', text: '積み上げた記録は、あとから振り返ったときに確かな自信になります。' },
+      { tag: '👓 節約博士の視点', text: 'お金を使わない日を意識して作るのは、リズムを整えるうえで悪くない方法です。' }
+    ];
+
+    let godCornerIndex = 0;
+    let godCornerTimer = null;
+
+    function getCornerMessagePool() {
+      const currentChar = normalizeCharacter(state.character);
+      if (currentChar === 'okan') return OKAN_CORNER_MESSAGES;
+      if (currentChar === 'doctor') return DOCTOR_CORNER_MESSAGES;
+      return GOD_CORNER_MESSAGES;
+    }
+
+    function renderGodCornerMessage() {
+      try {
+        const currentChar = normalizeCharacter(state.character);
+        const isOkan = currentChar === 'okan';
+        const isDoctor = currentChar === 'doctor';
+        const cornerBellGodSvg = document.getElementById('cornerBellGodSvg');
+        const cornerOkanSvg = document.getElementById('cornerOkanSvg');
+        const cornerDoctorSvg = document.getElementById('cornerDoctorSvg');
+        if (cornerBellGodSvg && cornerOkanSvg && cornerDoctorSvg) {
+          cornerBellGodSvg.classList.remove('hidden');
+          cornerOkanSvg.classList.remove('hidden');
+          cornerDoctorSvg.classList.remove('hidden');
+          cornerBellGodSvg.style.display = (!isOkan && !isDoctor) ? 'block' : 'none';
+          cornerOkanSvg.style.display = isOkan ? 'block' : 'none';
+          cornerDoctorSvg.style.display = isDoctor ? 'block' : 'none';
+        }
+        const pool = getCornerMessagePool();
+        const safeIndex = Math.abs(Number(godCornerIndex) || 0) % pool.length;
+        const item = pool[safeIndex] || pool[0];
+        const tagEl = document.getElementById('godCornerTag');
+        const textEl = document.getElementById('godCornerText');
+        if (tagEl && textEl && item) {
+          tagEl.textContent = item.tag;
+          textEl.textContent = item.text;
+        }
+      } catch (e) {
+        console.warn('一言コーナー更新エラー:', e);
+      }
+    }
+
+    function startGodCornerAutoCycle() {
+      if (godCornerTimer) {
+        clearInterval(godCornerTimer);
+      }
+      godCornerTimer = setInterval(() => {
+        const pool = getCornerMessagePool();
+        godCornerIndex = (godCornerIndex + 1) % pool.length;
+        renderGodCornerMessage();
+      }, 20000);
+    }
+
+    function cycleGodCornerMessage() {
+      const pool = getCornerMessagePool();
+      godCornerIndex = (godCornerIndex + 1) % pool.length;
+      renderGodCornerMessage();
+      startGodCornerAutoCycle();
+    }
+
+    const memoInputEl = document.getElementById('actionMemoInput');
+    if (memoInputEl) {
+      memoInputEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') submitActionModal();
+      });
+    }
+
+    renderAll();
+    startGodCornerAutoCycle();
+  </script>
+
+  <script>
+    // PWA: オフライン利用とホーム画面起動
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch((err) => {
+          console.warn('Service Worker 登録失敗:', err);
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
